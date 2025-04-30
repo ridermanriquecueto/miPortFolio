@@ -1,9 +1,7 @@
-
 /* Font */
 @import url('https://fonts.googleapis.com/css2?family=Belanosima&display=swap');
 
 /* Estilos generales */
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -15,12 +13,11 @@ body {
     font-family: 'Belanosima', sans-serif;
     font-size: 18px;
     line-height: 1.2;
-    background-color: #eeeef514;
-   
+    background-color: #1e3d2b; 
     
     background-size: cover;
     background-position: center;
-   
+    font-family: Arial, sans-serif; /* Sobreescrito, usar 'Belanosima' */
 }
 
 ul {
@@ -43,10 +40,17 @@ h2 {
     color: #f5e6e6;
 }
 
+h3 {
+    color: #ade0a0;
+}
+
+h4 {
+    color: #10e445;
+}
+
 p {
     margin: 18px 1;
     color: #f5e6e6;
-   
 }
 
 /* Para prevenir que las imágenes "rompan" la página */
@@ -54,17 +58,13 @@ img {
     max-width: 100%;
 }
 
-
-/*ver mover cv*/
-
-
-.curriculum {
-    text-align: center;
-}
-
-
 .btn:hover {
     transform: scale(1.1);
+}
+
+/* Animación mover CV */
+.curriculum {
+    text-align: center;
 }
 
 @keyframes moveCVSection {
@@ -76,18 +76,78 @@ img {
     animation: moveCVSection 2s ease infinite alternate;
 }
 
-
-/* Estilos generales */
-body {
-    font-family: Arial, sans-serif;
-}
-
 /* Estilos para la sección de educación */
 #Educacion {
     position: relative;
     overflow: hidden;
-    background-color: #0336083e;
     padding: 20px;
+    z-index: -1; /* Asegura que el contenido esté sobre el fondo animado */
+    /* background-color: #a5f0ac3e; Eliminamos el color de fondo */
+    display: grid; /* Usamos grid para los cuadros */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Cuadros adaptables */
+    gap: 20px;
+}
+
+/* Estilos para las habilidades */
+#Habilidades {
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+    z-index: 1; /* Asegura que el contenido esté sobre el fondo animado */
+    /* background-color: rgba(137, 243, 137, 0.973); Eliminamos el color de fondo */
+}
+
+.habilidades-lista {
+    display: grid;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .habilidades-lista {
+        grid-template-columns: repeat(2, minmax(200px, 1fr)); /* Dos columnas */
+    }
+
+    .habilidades-lista:nth-child(5) {
+        grid-column: 1 / -1; /* Ocupa todo el ancho */
+    }
+}
+
+@media (max-width: 767px) {
+    .habilidades-lista {
+        grid-template-columns: 1fr; /* Una sola columna */
+    }
+}
+
+.habilidades-categoria {
+    /* background-color: rgba(137, 243, 137, 0.7); Eliminamos el fondo del contenedor de habilidad */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    background-color: rgba(7, 7, 7, 0.6); /* Añadimos un fondo sutil a cada habilidad */
+}
+
+.habilidades-categoria:hover {
+    transform: translateY(-5px);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.habilidades-categoria h4 {
+    color: var(--color-accento);
+    margin-bottom: 10px;
+    border-bottom: 2px solid var(--color-secundario);
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+.habilidades-categoria ul {
+    list-style: none;
+    padding: 0 10px;
+}
+
+.habilidades-categoria li {
+    margin-bottom: 8px;
+    color: #f0fff0;
 }
 
 /* Estilos para la letra con movimiento */
@@ -120,10 +180,44 @@ body {
     }
 }
 
+.educacion-item {
+    margin-bottom: 15px;
+    padding: 15px;
+    border-left: 5px solid var(--color-accento); /* Una barra lateral para destacar */
+    background-color: rgb(7, 7, 7); /* Un fondo muy sutilmente transparente */
+}
 
+/* Estilos para las habilidades */
+.habilidades-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Distribución en columnas adaptable */
+    gap: 20px;
+}
 
+.habilidades-categoria {
+    background-color: rgba(80, 163, 80, 0.973); /* Fondo oscuro sutil */
+    padding: 15px;
+    border-radius: 5px;
+    
+}
 
+.habilidades-categoria h4 {
+    color: var(--color-accento);
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--color-secundario);
+    padding-bottom: 5px;
+}
 
+.habilidades-categoria ul {
+    list-style: none;
+    padding: 0;
+}
+
+.habilidades-categoria li {
+    margin-bottom: 5px;
+}
+
+/* Estilos para los proyectos */
 .proyecto {
     list-style: none;
     margin-bottom: 10px;
@@ -140,7 +234,6 @@ body {
     overflow: hidden; /* Limpiar el float */
 }
 
-/* Estilos adicionales según tu diseño */
 .proyectos-lista {
     list-style: none;
     display: flex;
@@ -163,8 +256,6 @@ body {
     margin-top: 10px; /* Añade espacio entre la imagen y la descripción */
 }
 
-
-
 /* Header */
 header {
     display: flex;
@@ -174,13 +265,10 @@ header {
     height: 90px;
     width: 100%;
     background-color: #318b1b;
-    /* Para que quede fijo en la ventana */
     position: fixed;
     top: 0;
     left: 0;
-    /* Para agregarle una sombra */
     box-shadow: 0 3px 10px -5px #0e0d0d;
-    
 }
 
 .logo {
@@ -191,7 +279,6 @@ header {
 ul#menu {
     display: flex;
     font-size: 20px;
-    
 }
 
 li.menu-item a {
@@ -209,7 +296,6 @@ li.menu-item a:hover{
 }
 
 /* Main */
-
 main {
     max-width: 1200px;
     margin: auto;
@@ -222,38 +308,26 @@ section {
     align-items: center;
     padding: 16px;
     min-height: 50vh;
-    /* lugar para el header */
-
 }
-
-
-
 
 /* Sección Inicio */
 section#AcercaDeMi {
     justify-content: space-around;
-    padding-top: 120px; 
+    padding-top: 120px;
+    flex-direction: row; /* Estaba repetido en el media query */
+    margin-top: 200px; /* Estaba repetido */
 }
 
 figure.presentacion-img {
     margin-bottom: 10px;
-    
 }
 
-
 figure.presentacion-img img {
-   
     border-radius: 50%;
     width: 320px;
     height: 300px;
     padding: 3px;
-    
 }
-#AcercaDeMi{
-    flex-direction: row;
-    margin top: 200px;
-}
-
 
 article.presentacion {
     max-width: 80vh;
@@ -261,7 +335,7 @@ article.presentacion {
     letter-spacing: 1.2px;
     text-shadow: 1px 0px;
     margin-top: 120px;
-    }
+}
 
 a.btn {
     background-color: #ee4c1b;
@@ -272,27 +346,21 @@ a.btn {
     display: inline-block;
     box-shadow: 0px 2px 0px 1px rgba(0, 0, 0, 0.2);
     margin-top: 20%;
-    
-
-    
- 
-    
 }
 
 a.btn:hover {
     background-color:#ec8f78;
-    color:  #131212d4;
+    color: #131212d4;
     color: rgb(158, 204, 202);
 }
 
-/* Sección Aprendi*/
+/* Sección Aprendi (PortFolio) */
 section#PortFolio {
     text-align: center;
-    
 }
 
 article.PortFolio-principal {
-    background: #114419d5;
+    background: #9ccca4d5;
     text-align: center;
     padding: 0%;
     border-radius: 10px;
@@ -324,23 +392,16 @@ article.contactame {
     border-radius: 50px;
     letter-spacing: 1.2%;
     text-shadow: 1px 0px;
-     margin: 12%;
-     font-size: 18px;
-   
-   
- 
+    margin: 12%;
+    font-size: 18px;
     border-radius: 5vh;
     margin-top: 1%;
-    
-    text-shadow:  50%;
-    border-radius: 5vh;
+    text-shadow: 50%;
 }
 
 ul#contact-links {
     display: flex;
     margin-top: -60px;
-   
-
 }
 
 ul#contact-links li {
@@ -348,76 +409,77 @@ ul#contact-links li {
     padding: 10px;
     border-radius: 4px;
 }
+
 ul#contact-links li:hover {
     transform: scale(0.98);
-    box-shadow: 3px 2px 22px 1px rgba(32, 31, 31, 0.24);  
-   
+    box-shadow: 3px 2px 22px 1px rgba(32, 31, 31, 0.24);
 }
 
 img.icon {
     width: 100px;
-
     height: 100px;
-
-    
-}
-/*pate de educacion animado*/
-
-.logos-tecnologias {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 100px; /* Altura fija para los logos */
-    overflow: hidden; /* Ocultar elementos que salgan del contenedor */
 }
 
-.logos-tecnologias img {
-    width: 80px; /* Tamaño fijo para los logos */
-    height: 80px; /* Tamaño fijo para los logos */
-    opacity: 0; /* Inicialmente ocultar los logos */
-    transition: opacity 0.5s ease-in-out; /* Transición suave para la aparición y desaparición */
+/* Estilos para los logos de fondo con movimiento disperso */
+/* Estilos para los logos de fondo con movimiento lateral */
+.logos-fondo-animado {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Detrás del contenido de Educación y Habilidades */
+    opacity: 0.30;
+    pointer-events: none;
+    overflow: hidden; /* Asegura que los logos no se corten */
 }
 
-/* Animación circular */
-@keyframes aparecer-desaparecer {
+.logos-fondo-animado img {
+    position: absolute;
+    max-width: 80px;
+    max-height: 80px;
+    animation: rebote-lateral 10s linear infinite alternate;
+}
+
+@keyframes rebote-lateral {
     0% {
-        transform: scale(0); /* Inicialmente, los elementos están ocultos (escala 0) */
-        opacity: 0; /* Inicialmente, los elementos están ocultos (opacidad 0) */
-    }
-    50% {
-        transform: scale(1); /* Al 50% de la animación, los elementos aparecen completamente (escala 1) */
-        opacity: 1; /* Al 50% de la animación, los elementos aparecen completamente (opacidad 1) */
+        transform: translateX(calc(-50vw + 60px)); /* Empieza visible desde la izquierda */
+        opacity: 0.6;
     }
     100% {
-        transform: scale(0); /* Al final de la animación, los elementos vuelven a estar ocultos (escala 0) */
-        opacity: 0; /* Al final de la animación, los elementos vuelven a estar ocultos (opacidad 0) */
+        transform: translateX(calc(150vw - 120px)); /* Termina visible hacia la derecha */
+        opacity: 0.6;
     }
 }
 
-.logos-tecnologias img {
-    animation: aparecer-desaparecer 5s infinite; /* Aplicar la animación circular */
-}
-/*luces en reproductor*/
-/* Estilos para el reproductor de audio */
-#audioPlayer {
-    position: relative;
-    z-index: 1;
+/* Animación de "flotar" sutil */
+@keyframes flotar-disperso {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
 }
 
-/* Efecto de luces en el reproductor */
-#audioPlayer::before {
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    border-radius: 50%;
-    box-shadow: 0 0 50px rgba(255, 255, 255, 0.5); /* Efecto de luces */
-    animation: luces 2s linear infinite alternate; /* Animación de las luces */
+/* Animación para cambiar de posición */
+@keyframes cambiar-posicion {
+    0% { transform: translateX(0); }
+    100% {
+        transform: translateX(calc(100vw - 40px)); /* Se mueve a lo ancho de la pantalla */
+    }
 }
-
-/* Contenedor para las luces */
+/* Posicionamiento vertical inicial aleatorio para cada logo */
+.logos-fondo-animado img:nth-child(1) { top: 10%; animation-delay: 30s; }
+.logos-fondo-animado img:nth-child(2) { top: 20%; animation-delay: 15s; }
+.logos-fondo-animado img:nth-child(3) { top: 30%; animation-delay: 20s; }
+.logos-fondo-animado img:nth-child(4) { top: 40%; animation-delay: 25s; }
+.logos-fondo-animado img:nth-child(5) { top: 50%; animation-delay: 15s; }
+.logos-fondo-animado img:nth-child(6) { top: 60%; animation-delay: 25s; }
+.logos-fondo-animado img:nth-child(7) { top: 70%; animation-delay: 48s; }
+.logos-fondo-animado img:nth-child(8) { top: 80%; animation-delay: 18s; }
+.logos-fondo-animado img:nth-child(9) { top: 90%; animation-delay: 28s; }
+.logos-fondo-animado img:nth-child(10) { top: 5%; animation-delay: 22s; }
+.logos-fondo-animado img:nth-child(11) { top: 15%; animation-delay: 42s; }
+.logos-fondo-animado img:nth-child(12) { top: 25%; animation-delay: 32s; }
+/* Agrega más estilos nth-child según la cantidad de logos que tengas */
+/* Estilos para las luces de fondo */
 #particles-js-luces {
     position: absolute;
     top: 0;
@@ -427,19 +489,14 @@ img.icon {
     z-index: 0; /* Z-index modificado para que las luces estén detrás del reproductor */
 }
 
-/* Animación de las luces */
 @keyframes luces {
     from {
-        box-shadow: 0 0 50px rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 50px rgba(149, 226, 165, 0.5);
     }
     to {
-        box-shadow: 0 0 100px rgba(255, 255, 255, 0.8); /* Cambia el tamaño y la intensidad de las luces */
+        box-shadow: 0 0 100px rgba(2, 51, 12, 0.8); /* Cambia el tamaño y la intensidad de las luces */
     }
 }
-
-
-
-
 
 /* Footer */
 footer {
@@ -450,121 +507,8 @@ footer {
     background-color: #04201391;
     color: #fbfbfb;
 }
-/* mobile */
-section {
-    display: flex;
-    flex-direction: column;
-   }
-   h1 {
-    font-size: 36px;
-   }
-   /* desktop */
-   
-@media screen and (min-width: 1024px){
-    body {
-        font-size: 18px;
-        line-height: 1.2;
-    }
-    h1 {
-        font-size: 26px;
-        text-align: center;
-    }
-    section#AcerdaDeMi {
-        justify-content: space-around;
-        padding-top: 120px;
-    }
-    figure.presentacion-img img {
-        border-radius: 50%;
-        width: 250px;
-        margin-top: 50px;
-    }
-    ul#menu {
-        font-size: 18px; 
-    }
-    li.menu-item a {
-        padding: 12px;
-    }
-    img.PortFoliocon {
-        width: 250px;
-        margin-top: 15% ;
-    }
-    article.PortFolio-items{
 
-        width: 50px;
-        margin-top: 50px;
-
-    }
-    article.PortFolio-principal{
-    margin-top: 5%;
-
-    }
-    img.icon {
-        width: 60px;
-        margin-top: -50px;
-    }
-    header{
-        padding: 3%;
-    }
-}
-
-/* Añade este estilo al final del archivo styles.css */
-
-
-
-.animated-background {
-    background: linear-gradient(45deg, rgba(12, 74, 46, 0.137), rgb(74, 177, 83),rgba(9, 78, 58, 0.007),rgb(5, 49, 49),rgb(3, 41, 23),rgb(6, 66, 66),rgba(10, 80, 6, 0.497));
-    background-size: 400% 400%;
-    animation: gradientAnimation 15s ease infinite;
-}
-
-@keyframes gradientAnimation {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-#particles-js {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: #2f6e20;
-    background-size: cover;
-    background-position: 50% 50%;
-    z-index: -1;
-  }
-@keyframes scroll {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(100px); }
-}
-
-.scroll-animation {
-  animation: scroll 2s infinite alternate;
-}
-  
-@keyframes scroll {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(100px); }
-  }
-  
-  .scroll-animation {
-    animation: scroll 2s infinite alternate;
-  }
-  #particles-js-acerca-de-mi,
-  #particles-js-port-folio,
-  #particles-js-contacto {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1; /* Asegúrate de que los contenedores estén detrás del contenido de la sección */
-  }
- /* Estilos para dispositivos móviles */
+/* Estilos para dispositivos móviles */
 @media screen and (max-width: 767px) {
     section#AcercaDeMi {
         flex-direction: column; /* Cambia la dirección del flexbox a columna */
@@ -579,4 +523,50 @@ section {
     }
 }
 
-   
+/* Estilos para el fondo animado con gradiente */
+.animated-background {
+    background: linear-gradient(45deg), rgba(12, 74, 46, 0.137), rgb(74, 177, 83),rgba(9, 78, 58, 0.007),rgb(5, 49, 49),rgb(3, 41, 23),rgb(6, 66, 66),rgba(10)}
+
+
+
+/* Estilos para pantallas más pequeñas (ej: 767px o menos) */
+@media screen and (max-width: 767px) {
+    .menu-principal {
+        display: block; /* Cambiamos a bloque para el botón y el menú */
+    }
+
+    .menu-toggle {
+        display: block; /* Mostramos el botón en móviles */
+    }
+
+    .menu {
+        display: none; /* Ocultamos el menú por defecto en móviles */
+        flex-direction: column;
+        width: 100%;
+        background-color: rgba(49, 139, 27, 0.9); /* Fondo para el menú desplegado */
+        position: absolute;
+        top: 100%; /* Debajo del header */
+        left: 0;
+        z-index: 101; /* Aseguramos que esté sobre el contenido */
+    }
+
+    .menu.open {
+        display: flex; /* Mostramos el menú cuando la clase 'open' está presente */
+    }
+
+    .menu-item a {
+        padding: 15px;
+        text-align: center;
+    }
+}
+#pdf-container {
+    width: 100%;
+    max-width: 800px; /* Ajusta esto según sea necesario */
+    margin: 0 auto;
+}
+
+#pdf-canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+}

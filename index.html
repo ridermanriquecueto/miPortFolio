@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,270 +10,360 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Belanosima&display=swap">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.302/pdf.min.js"></script>
-    
 
 </head>
+
 <body>
 
-<div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></div>
-<div class="animate__animated animate__bounce">¡Hola, mundo!</div>
-<header>
-    <a href="#AcercaDeMi" aria-label="Ir a la sección de AcercaDeMi">
-        <img src="img/logo.png" alt="RyderMan" class="logo">
-    </a>
+    <div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></div>
+    <div class="animate__animated animate__bounce">¡Hola, mundo!</div>
+    <header>
+        <a href="#AcercaDeMi" aria-label="Ir a la sección de AcercaDeMi">
+            <img src="img/logo.png" alt="RyderMan" class="logo">
+        </a>
 
-    <nav>
-        <ul id="menu">
-            <li class="menu-item">
-                <a href="#AcercaDeMi" class="active">AcercaDeMi</a>
-            </li>
-            <li class="menu-item">
-                <a href="#contacto" class="active">Contacto</a>
-            </li>
-            <li class="menu-item">
-                <a href="#Curriculum" id="curriculum-link" class="active">Curriculum</a>
-            </li>
-            <li class="menu-item">
-                <a href="#PortFolio" class="active">PortFolio</a>
-            </li>
-            
-           <li class="menu-item">
-            <a href="#Educacion"  class="active">Educacion</a>
-           </li>
-
-           
-            <li class="menu-item">
-                <a href="#MiMusica" class="active">MiMusica</a>
-            </li>
-        </ul>
-    </nav>
-</header>
-
-
-<main>
-    <section id="AcercaDeMi" class="animated-background">
-        <div id="particles-js-acerca-de-mi"></div>
-        <figure class="presentacion-img">
-            <img src="img/rider.jpg" alt="rider">
-        </figure>
-        <article class="presentacion">
-
-            <p>
-                <h1>HOLA! YO SOY RENATO MANRIQUE: Soy un entusiasta de la informática y un apasionado desarrollador frontend. Mi fascinación por la tecnología y el diseño me ha llevado a explorar y dominar las últimas tendencias en desarrollo web, creando experiencias visuales y funcionales excepcionales para los usuarios. Mi dedicación a la excelencia se refleja en mi constante búsqueda de conocimiento y en mi compromiso de mantenerme al día con las últimas herramientas y lenguajes de programación.</h1>
-            </p>
-
-
-
-        </article>
-    </section>
-    <section id="Curriculum" class="animated-background">
-        <div id="particles-js-curriculum"></div>
-        <article class="curriculum">
-            <h2>Quieres Descargar Mi Curriculum? Haz clic abajo</h2>
-            <a href="https://drive.google.com/file/d/1qBVtkEBoMtIfD2D2Ixb4iDp0pyYj48Jq/view?usp=drive_link" aria-label="Descargar cv" target="_blank" class="btn" id="download-cv">Descargar mi CV</a>
-        </article>
-    </section>
-   
-
-
-    <section id="contacto" class="animated-background">
-        <div id="particles-js-contacto"></div>
-
-        <article class="contactame">
-            <h2>CONTACTAME!</h2>
-            <form id="formularioContacto" class="needs-validation" novalidate>
-                <div class="form-group">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Correo Electrónico:</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="nombre">Telefono:</label>
-                    <input type="int" class="form-control" id="Telefono name="nombre" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="mensaje">Mensaje:</label>
-                    <textarea class="form-control" id="mensaje" name="mensaje" rows="4" required></textarea>
-                </div>
-
-                <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
-
-            </form>
-            <div class="redes-sociales mt-3">
-                <p>Sígueme en las redes sociales: Click en lo que deseas</p>
-                <div class="row">
-                    <div class="col-sm-4">
-                        <a href="https://github.com/ridermanriquecueto" target="_blank" aria-label="Ir al perfil de GitHub">
-                            <img src="img/github.png" class="icon" style="margin-top: 1cm;">
-                        </a>
-                        <p class="text-center">GitHub</p>
-                    </div>
-                    <div class="col-sm-4">
-                        <a href="https://www.linkedin.com/in/rider-manrique-538876240/" target="_blank" aria-label="Ir al perfil de LinkedIn">
-                            <img src="img/linkedin.png" class="icon" style="margin-top: 1cm;">
-                        </a>
-                        <p class="text-center">LinkedIn</p>
-                    </div>
-                    <div class="col-sm-4">
-                        <a href="https://www.gmail.com/mail/help/intl/es/about.html?iframe" target="_blank" aria-label="Enviar mail">
-                            <img src="img/mail.png" class="icon" style="margin-top: 1cm;">
-                        </a>
-                        <p class="text-center">Gmail</p>
-                    </div>
-                </div>
-                
-            </div>
-
-
-
-        </article>
-
-
-    </section>
-
-    <section id="PortFolio" class="animated-background">
-        <div id="particles-js-port-folio"></div>
-        <h2>Proyectos Realizados</h2>
-        <article class="PortFolio-principal">
-
-
-            <!-- Lista de proyectos -->
-            <ul id="proyectos" class="proyectos-lista">
-                <!-- Primer proyecto -->
-                <li class="proyecto">
-                    <img src="img\img_2023.jpeg" alt="Captura de pantalla del proyecto 1" class="imagen-proyecto">
-                    <div class="descripcion-proyecto">
-                        <h1>Gestión de Instituto</h1>
-                        <a href="https://github.com/ridermanriquecueto/gestionInstituto" target="_blank">Ver en GitHub</a>
-                    </div>
+        <nav>
+            <ul id="menu">
+                <li class="menu-item">
+                    <a href="#AcercaDeMi" class="active">AcercaDeMi</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#contacto" class="active">Contacto</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#Curriculum" id="curriculum-link" class="active">Curriculum</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#PortFolio" class="active">PortFolio</a>
                 </li>
 
-                <!-- Segundo proyecto -->
-                <li class="proyecto">
-                    <img src="img\cpt.jpeg" alt="Captura de pantalla del proyecto 2" class="imagen-proyecto">
-                    <div class="descripcion-proyecto">
-                        <h2>Proyecto 2</h2>
-                        <p>crud_python_sqlite3</p>
-                        <a href="https://github.com/ridermanriquecueto/crud_python_sqlite3.io.git">Ver en GitHub
-                    </div>
-                </li>
-
-                <!-- Tercer proyecto -->
-                <li class="proyecto">
-                    <img src="img\pke.jpeg" alt="Captura de pantalla del proyecto 3" class="imagen-proyecto">
-                    <div class="descripcion-proyecto">
-                        <h3>Proyecto 3</h3>
-                        <p>pokkemones!!</p>
-                        <a href="https://ridermanriquecueto.github.io/pokemonnes.github.io/">Ver en github
-                    </div>
+                <li class="menu-item">
+                    <a href="#Educacion" class="active">Educacion</a>
                 </li>
             </ul>
-        </article>
-    </section>
-    <section id="Educacion" class="animated-background">
-        <article class="educacion">
-            <a href="img/TODOS LOS CERTFICADOS JUNTOS.pdf" target="_blank" class="movimiento-letra">Ver todos los certificados</a>
-            <div class="logos-tecnologias">
-                <img src="img\htt.png" alt="HTML Logo">
-                <img src="img\cs.png" alt="CSS Logo">
-                <img src="img\js.png" alt="JavaScript Logo">
-                <img src="img\boostrap.jfif" alt="Bootstrap Logo">
-                <img src="img\gitt.png" alt="Git Logo">
-                <img src="img\vsualC.png" alt="VisualCode">
-                <img src="img\tk.png" alt="tk">
-                <img src="img\py.png" alt="py">
-                <img src="img\node.png" alt="node">
-                <img src="img\react.png" alt="react">
-                <img src="img\gitt.png" alt="db">
-                <img src="img\go.jpg" alt="go">
-                <!-- Agrega aquí más imágenes de los logos de las tecnologías -->
-            </div>
-          
-        </article>
-    </section>
-    
-    
-     
+        </nav>
+    </header>
+
+
+    <main>
+        <section id="AcercaDeMi" class="animated-background">
+            <div id="particles-js-acerca-de-mi"></div>
+            <figure class="presentacion-img">
+                <img src="img/rider.jpg" alt="rider">
+            </figure>
+            <article class="presentacion">
+
+                <p>
+                    <h1>HOLA! YO SOY RIDER MANRIQUE: Analista de Sistemas y Desarrollador Web Full-Stack. Experiencia en Frontend (HTML, CSS, JavaScript, React) y Backend (Java, Spring Boot, Micronaut, Python/Django) para crear soluciones web y aplicaciones con microservicios. Manejo de bases de datos (MySQL, PostgreSQL) y herramientas como Git, Postman. Apasionado por el desarrollo de aplicaciones web responsivas y la optimización de la experiencia del usuario.</h1>
+                </p>
+            </article>
+        </section>
+        <section id="Curriculum" class="animated-background">
+            <div id="particles-js-curriculum"></div>
+            <article class="curriculum">
+                <h2>Quieres Descargar Mi Curriculum? Haz clic abajo</h2>
+                <a href="https://drive.google.com/file/d/1-6l3cLE4I4ZIZ88kRrWtyr-t5hNAFyk_/view?usp=drive_link"
+                
+                    aria-label="Descargar cv" target="_blank" class="btn" id="download-cv">Descargar mi CV</a>
+            </article>
+        </section>
+
+
+        <section id="contacto" class="animated-background">
+            <div id="particles-js-contacto"></div>
+
+            <article class="contactame">
+                <h2>CONTACTAME!</h2>
+                <form id="formularioContacto" class="needs-validation" novalidate>
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                        
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre">Telefono:</label>
+                       
+                        <input type="number" class="form-control" id="Telefono" name="telefono" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje:</label>
+                        <textarea class="form-control" id="mensaje" name="mensaje" rows="4" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+
+                </form>
+                
+                <div class="redes-sociales mt-3">
+                    <p>Sígueme en las redes sociales: Click en lo que deseas</p>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <a href="https://github.com/ridermanriquecueto" target="_blank"
+                                aria-label="Ir al perfil de GitHub">
+                                <img src="img/github.png" class="icon" style="margin-top: 1cm;">
+                            </a>
+                            <p class="text-center">GitHub</p>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="https://www.linkedin.com/in/rider-manrique-538876240/" target="_blank"
+                                aria-label="Ir al perfil de LinkedIn">
+                                <img src="img/linkedin.png" class="icon" style="margin-top: 1cm;">
+                            </a>
+                            <p class="text-center">LinkedIn</p>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="https://www.gmail.com/mail/help/intl/es/about.html?iframe" target="_blank"
+                                aria-label="Enviar mail">
+                                <img src="img/mail.png" class="icon" style="margin-top: 1cm;">
+                            </a>
+                            <p class="text-center">Gmail</p>
+                        </div>
+                    </div>
+
+                </div>
 
 
 
-    
-    
-    
-    
-
-   
-    
-        
-   
-    
-    
-    
-   
-    <section id="MiMusica" class="animated-background">
-        <div id="particles-js-luces"></div>
-        <div id="particles-js-mi-musica"></div>
-        <div class="menu-item"><a href="#MiMusica">Mi Música</a></div>
-        <audio id="audioPlayer" controls autoplay>
-            <source src="img/10 Lima NO.m4a" type="audio/mp3">
-            <source src="img/Chichi Peralta - La Ciguapa.mp3" type="audio/mp3">
-            <source src="img/saliditas contigo - manolito y su trabuco.mp3" type="audio/mp3">
-            Tu navegador no soporta el elemento de audio.
-        </audio>
-    </section>
-    
+            </article>
 
 
-</main>
+        </section>
+
+--        <section id="PortFolio" class="animated-background">
+            <div id="particles-js-port-folio"></div>
+            <h2>Proyectos Realizados</h2>
+            <section id="PortFolio" class="animated-background">
+                <div id="particles-js-port-folio"></div>
+                
+                <div class="proyecto-card">
+                    <img src="img/img_2023.jpeg" alt="Captura de pantalla de Gestión de Instituto" class="imagen-proyecto-card">
+                    <div class="proyecto-info">
+                        <h3 class="proyecto-titulo">SIMEF - Sistema de Gestión de Instituto</h3>
+                        <p class="proyecto-descripcion">
+                            Sistema web (SIMEF) para la gestión de inscripciones a materias y exámenes finales,
+                            desarrollado como proyecto final de la carrera de Analista de Sistemas.
+                            Tecnologías: Frontend - HTML, CSS, Bootstrap, JavaScript; Backend - Python, Django; Base de Datos - MySQL.
+                            Rol: Desarrollador Full-Stack, con contribuciones en el diseño, desarrollo del backend y frontend,
+                            y configuración del servidor. Proyecto colaborativo con compañeros de carrera.
+                            Características principales: Gestión de inscripciones a finales, acceso al backoffice.
+                            Enlace al repositorio con detalles de instalación:
+                            <a href="https://github.com/ridermanriquecueto/Instituto_210" target="_blank">GitHub</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="proyecto-card">
+                    <img src="img/inicio_hilos.png" alt="Captura de pantalla de La Casa de Hilos y Repuestos" class="proyecto-imagen">
+                    <div class="proyecto-info">
+                        <h3 class="proyecto-titulo">La Casa de Hilos y Repuestos</h3>
+                        <p class="proyecto-descripcion">
+                            Aplicación web de comercio electrónico desarrollada con Django (Python) para la gestión y venta de
+                            productos relacionados con hilos y repuestos.
+                            Tecnologías: Python 3, Django, HTML, CSS, JavaScript, SQLite.
+                            Rol: Desarrollador Individual.
+                            Responsabilidades: Desarrollo completo de la aplicación, desde la gestión de productos y el inventario
+                            hasta el diseño de la interfaz de usuario.
+                            Características principales:
+                            Gestión de productos, gestión de inventario, promoción de productos, diseño responsive.
+                            Instalación:
+                            Clonación del repositorio (Git), creación de entorno virtual (Python venv), instalación de dependencias
+                            (pip), migración de la base de datos (Django migrate), ejecución del servidor local (Django runserver).
+                            Enlace al repositorio con detalles:
+                            <a href="https://github.com/ridermanriquecueto/tienda_hilos.git" target="_blank">GitHub</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="proyecto-card">
+                    <img src="img/tienda_ropa.png" alt="Captura de pantalla de Tienda de Ropa" class="proyecto-imagen">
+                    <div class="proyecto-info">
+                        <h3 class="proyecto-titulo">Tienda de Ropa</h3>
+                        <p class="proyecto-descripcion">
+                            Aplicación web de comercio electrónico desarrollada con Django (Python) para la gestión y venta de ropa.
+            
+                            Tecnologías: Python 3, Django, Bootstrap, HTML, CSS, JavaScript, SQLite.
+                            Rol: Desarrollador Individual.
+                            Características principales: Gestión de productos, carrito de compras, gestión de pedidos, búsqueda de productos, diseño responsive.
+                            Instalación: Clonación del repositorio (Git), creación de entorno virtual (Python venv), instalación de dependencias (pip), migración de la base de datos (Django migrate), ejecución del servidor local (Django runserver).
+                            Enlace al repositorio con detalles: <a href="https://github.com/ridermanriquecueto/fashion-store.git" target="_blank">GitHub</a>
+                        </p>
+                    </div>
+                </div>
+            
+                <div class="proyecto-card">
+                    <img src="img/cpt.jpeg" alt="Captura de pantalla de crud_python_sqlite3"
+                        class="imagen-proyecto-card">
+                    <div class="proyecto-info">
+                        <h3 class="proyecto-titulo">crud_python_sqlite3</h3>
+                        <p class="proyecto-descripcion">Aplicación CRUD (Crear, Leer, Actualizar, Eliminar)
+                            desarrollada en Python utilizando la base de datos SQLite3. Un proyecto para aprender los
+                            fundamentos de la persistencia de datos en Python.</p>
+                        <div class="proyecto-links">
+                            <a href="https://github.com/ridermanriquecueto/crud_python_sqlite3.io.git"
+                                target="_blank" class="proyecto-github-link">Ver en GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="Educacion" class="animated-background">
+                <div id="particles-js-educacion"></div>
+                <article class="educacion-container">
+                    <h2>Educación y Habilidades</h2>
+            
+                    <div class="contenido-container">
+                        <div class="educacion-detalle">
+                            <h3>Educación</h3>
+                            <div class="educacion-lista">
+                                <div class="educacion-item">
+                                    <h4>2024</h4>
+                                    <p>Instituto Superior de Formación Docente y Técnico 210 <br>(Analista de Sistemas)</p>
+                                </div>
+                                <div class="educacion-item">
+                                    <h4>2021-2022</h4>
+                                    <p>Universitas Estudios Superiores <br>(Analista de sistemas)</p>
+                                </div>
+                                <div class="educacion-item">
+                                    <h4>2006-2009</h4>
+                                    <p>Universidad Nacional de La Plata (UNLP) <br>- Licenciatura Informática</p>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="habilidades-detalle">
+                            <h3>Habilidades</h3>
+                            <div class="habilidades-lista">
+                                <div class="habilidades-categoria">
+                                    <h4>Frontend</h4>
+                                    <ul>
+                                        <li>HTML</li>
+                                        <li>CSS</li>
+                                        <li>JavaScript</li>
+                                        <li>React</li>
+                                        <li>Bootstrap</li>
+                                    </ul>
+                                </div>
+                                <div class="habilidades-categoria">
+                                    <h4>Backend</h4>
+                                    <ul>
+                                        <li>Python (Django)</li>
+                                        <li>Java</li>
+                                        <li>PHP</li>
+                                        <li>Go</li>
+                                        <li>Spring Boot</li>
+                                        <li>Micronaut</li>
+                                        <li>Microservicios</li>
+                                        <li>PostgreSQL</li>
+                                    </ul>
+                                </div>
+                                <div class="habilidades-categoria">
+                                    <h4>Bases de Datos</h4>
+                                    <ul>
+                                        <li>MySQL</li>
+                                        <li>PostgreSQL</li>
+                                        <li>SQLite3</li>
+                                    </ul>
+                                </div>
+                                <div class="habilidades-categoria">
+                                    <h4>Herramientas de Desarrollo</h4>
+                                    <ul>
+                                        <li>Git</li>
+                                        <li>GitLab</li>
+                                        <li>Visual Studio Code</li>
+                                        <li>IntelliJ IDEA</li>
+                                        <li>Eclipse</li>
+                                        <li>Trello</li>
+                                        <li>Jira</li>
+                                        <li>Figma</li>
+                                    </ul>
+                                </div>
+                                <div class="habilidades-categoria">
+                                    <h4>Otros</h4>
+                                    <ul>
+                                        <li>Metodologías Ágiles (Scrum, Kanban)</li>
+                                        <li>Pruebas Unitarias, Funcionales, de Integración</li>
+                                        <li>UX/UI</li>
+                                        <li>Prototipado (Figma, Sketch)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <a href="img/TODOS LOS CERTFICADOS JUNTOS.pdf" target="_blank" class="movimiento-letra">Ver todos los certificados</a>
+            
+                </article>
+            
+                <div class="logos-fondo-animado">
+                    <img src="img/htt.png" alt="HTML Logo">
+                    <img src="img/cs.png" alt="CSS Logo">
+                    <img src="img/js.png" alt="JavaScript Logo">
+                    <img src="img/boostrap.jfif" alt="Bootstrap Logo">
+                    <img src="img/gitt.png" alt="Git Logo">
+                    <img src="img/vsualC.png" alt="VisualCode">
+                    <img src="img/tk.png" alt="tk">
+                    <img src="img/py.png" alt="py">
+                    <img src="img/node.png" alt="node">
+                    <img src="img/react.png" alt="react">
+                    <img src="img/gitt.png" alt="db">
+                    <img src="img/go.jpg" alt="go">
+                </div>
+            </section>
+            <section id="Educacion" class="animated-background">
+                <div id="particles-js-educacion"></div>
+                <article class="educacion-container">
+                    <h2>Educación y Habilidades</h2>
+                    <div id="pdf-vista-previa-container" style="max-width: 600px; margin: 0 auto;">
+                        <canvas id="pdf-canvas-vista-previa" style="width: 100%; height: auto; border: 1px solid #ccc;"></canvas>
+                        
+                    </div>
+                   
+                </article>
+            </section>
+
+    </main>
+
+    <footer>
 
 
-
-<footer>
-   
-       
-            <div class="footer-column">
-                <h3>Enlaces Importantes</h3>
-                <ul>
-                    <li><a href="/servicios">Servicios</a></li>
-                    <li><a href="/precios">Precios</a></li>
-                    <li><a href="/preguntas-frecuentes">Preguntas Frecuentes</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Políticas</h3>
-                <ul>
-                    <li><a href="/politica-de-privacidad">Política de Privacidad</a></li>
-                    <li><a href="/politica-de-cookies">Política de Cookies</a></li>
-                    <li><a href="/terminos-de-servicio">Términos de Servicio</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Redes Sociales</h3>
-                <ul>
-                    <li><a href="https://www.facebook.com/tudominio">Facebook</a></li>
-                    <li><a href="https://twitter.com/tudominio">Twitter</a></li>
-                    <li><a href="https://www.instagram.com/tudominio">Instagram</a></li>
-                </ul>
-            </div>
+        <div class="footer-column">
+            <h3>Enlaces Importantes</h3>
+            <ul>
+                <li><a href="/servicios">Servicios</a></li>
+                <li><a href="/precios">Precios</a></li>
+                <li><a href="/preguntas-frecuentes">Preguntas Frecuentes</a></li>
+            </ul>
         </div>
-        
+        <div class="footer-column">
+            <h3>Políticas</h3>
+            <ul>
+                <li><a href="/politica-de-privacidad">Política de Privacidad</a></li>
+                <li><a href="/politica-de-cookies">Política de Cookies</a></li>
+                <li><a href="/terminos-de-servicio">Términos de Servicio</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Redes Sociales</h3>
+            <ul>
+                <li><a href="https://www.facebook.com/tudominio">Facebook</a></li>
+                <li><a href="https://twitter.com/tudominio">Twitter</a></li>
+                <li><a href="https://www.instagram.com/tudominio">Instagram</a></li>
+            </ul>
+        </div>
+
     </footer>
-    
-    
 
-</footer>
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="js/main.js"></script>
-<script src="js/particles.js"></script>
-<script src="js/app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/app.js"></script>
 
 </body>
+
 </html>

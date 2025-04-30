@@ -22,25 +22,7 @@ menuPrincipalItems.forEach(function(item) {
     });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    const audioPlayer = document.getElementById('audioPlayer');
-    const playlist = [
-        'img/10 Lima NO.m4a',
-        'img/Chichi Peralta - La Ciguapa.mp3',
-        'img/saliditas contigo - manolito y su trabuco.mp3'
-    ];
-    let currentTrack = 0;
 
-    audioPlayer.src = playlist[currentTrack];
-    audioPlayer.play();
-
-    audioPlayer.addEventListener('ended', () => {
-        // Reproducir la siguiente pista cuando la actual haya terminado
-        currentTrack = (currentTrack + 1) % playlist.length;
-        audioPlayer.src = playlist[currentTrack];
-        audioPlayer.play();
-    });
-});
 
 particlesJS("particles-js", {
     particles: {
@@ -127,73 +109,10 @@ particlesJS.load('particles-js-acerca-de-mi', 'config-acerca-de-mi.json', functi
     console.log('callback - particles.js config loaded');
 });
 
-const pdfUrl = 'img/TODOS LOS CERTFICADOS JUNTOS.pdf';
 
-function loadPdf(url) {
-    pdfjsLib.getDocument(url).promise.then(function(pdf) {
-        pdf.getPage(1).then(function(page) {
-            const scale = 1.5;
-            const viewport = page.getViewport({ scale: scale });
 
-            const canvas = document.getElementById('pdf-canvas');
-            const context = canvas.getContext('2d');
-            canvas.height = viewport.height;
-            canvas.width = viewport.width;
 
-            const renderContext = {
-                canvasContext: context,
-                viewport: viewport
-            };
 
-            page.render(renderContext).promise.then(function() {
-                document.getElementById('overlay-text').style.display = 'block';
-            });
-        });
-    });
-}
-
-window.onload = function() {
-    loadPdf(pdfUrl);
-};
-document.addEventListener("DOMContentLoaded", function () {
-  const pdfUrl = 'img/TODOS LOS CERTFICADOS JUNTOS.pdf';
-  const pdfContainer = document.getElementById('pdf-container');
-  const canvas = document.getElementById('pdf-canvas');
-  const overlayText = document.getElementById('overlay-text');
-
-  // Cargar el PDF al hacer clic en el enlace
-  overlayText.addEventListener('click', function(e) {
-      e.preventDefault();
-      loadPdf(pdfUrl);
-  });
-
-  function loadPdf(url) {
-      pdfjsLib.getDocument(url).promise.then(function(pdf) {
-          pdf.getPage(1).then(function(page) {
-              const scale = 1.5;
-              const viewport = page.getViewport({ scale: scale });
-
-              canvas.height = viewport.height;
-              canvas.width = viewport.width;
-
-              const renderContext = {
-                  canvasContext: canvas.getContext('2d'),
-                  viewport: viewport
-              };
-
-              page.render(renderContext).promise.then(function() {
-                  pdfContainer.style.display = 'block';
-                  overlayText.style.display = 'none';
-              });
-          });
-      }).catch(function(error) {
-          console.error('Error al cargar el PDF:', error);
-      });
-  }
-
-  // Cargar el PDF automáticamente al cargar la página
-  loadPdf(pdfUrl);
-});
 particlesJS("particles-js-educacion", {
   // Configuración de Particles.js
   particles: {
@@ -249,4 +168,95 @@ particlesJS("particles-js-luces", {
         }
     },
     retina_detect: true
+});
+const menuToggle = document.querySelector('.menu-toggle');
+const menu = document.getElementById('menu');
+
+// Crear el botón de hamburguesa dinámicamente y agregarlo al header
+const toggleButton = document.createElement('button');
+toggleButton.classList.add('menu-toggle');
+toggleButton.setAttribute('aria-controls', 'menu');
+toggleButton.setAttribute('aria-expanded', 'false');
+toggleButton.innerHTML = `
+    <span class="sr-only">Menú</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+`;
+
+const header = document.querySelector('header');
+header.appendChild(toggleButton);
+
+// Volver a seleccionar el botón después de agregarlo al DOM
+const newMenuToggle = document.querySelector('.menu-toggle');
+
+newMenuToggle.addEventListener('click', () => {
+    const expanded = newMenuToggle.getAttribute('aria-expanded') === 'true' || false;
+    newMenuToggle.setAttribute('aria-expanded', !expanded);
+    menu.classList.toggle('open');
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const pdfUrl = 'img/TODOS LOS CERTFICADOS JUNTOS.pdf';
+    const canvasVistaPrevia = document.getElementById('pdf-canvas-vista-previa');
+
+    function loadPdfVistaPrevia(url) {
+        pdfjsLib.getDocument(url).promise.then(function(pdf) {
+            pdf.getPage(1).then(function(page) {
+                const scale = 0.75; // Ajusta la escala para la vista previa
+                const viewport = page.getViewport({ scale: scale });
+
+                canvasVistaPrevia.height = viewport.height;
+                canvasVistaPrevia.width = viewport.width;
+
+                const renderContext = {
+                    canvasContext: canvasVistaPrevia.getContext('2d'),
+                    viewport: viewport
+                };
+
+                page.render(renderContext);
+            });
+        });
+    }
+
+    // Cargar la vista previa del PDF
+    loadPdfVistaPrevia(pdfUrl);
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const formularioContacto = document.getElementById('formularioContacto');
+
+    formularioContacto.addEventListener('submit', function(event) {
+        event.preventDefault(); // Evita el envío real del formulario
+
+        // Simulación de un envío exitoso (puedes agregar lógica más compleja aquí)
+        const simulacionExitosa = true; // Cambia a 'false' para simular un error
+
+        if (simulacionExitosa) {
+            // Mostrar mensaje de éxito
+            const mensajeExito = document.createElement('div');
+            mensajeExito.classList.add('alert', 'alert-success', 'mt-3');
+            mensajeExito.textContent = '¡Mensaje enviado con éxito!';
+            formularioContacto.parentNode.insertBefore(mensajeExito, formularioContacto.nextSibling);
+
+            // Opcional: Resetear el formulario después de la simulación
+            formularioContacto.reset();
+
+            // Opcional: Ocultar el mensaje de éxito después de unos segundos
+            setTimeout(function() {
+                mensajeExito.remove();
+            }, 3000); // Ocultar después de 3 segundos
+        } else {
+            // Mostrar mensaje de error
+            const mensajeError = document.createElement('div');
+            mensajeError.classList.add('alert', 'alert-danger', 'mt-3');
+            mensajeError.textContent = 'Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.';
+            formularioContacto.parentNode.insertBefore(mensajeError, formularioContacto.nextSibling);
+
+            // Opcional: Ocultar el mensaje de error después de unos segundos
+            setTimeout(function() {
+                mensajeError.remove();
+            }, 3000); // Ocultar después de 3 segundos
+        }
+    });
 });
