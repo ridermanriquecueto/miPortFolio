@@ -13,7 +13,7 @@ body {
     font-family: 'Belanosima', sans-serif;
     font-size: 18px;
     line-height: 1.2;
-    background-color: #1e3d2b; 
+    background-color: #0c0d0c; 
     
     background-size: cover;
     background-position: center;
@@ -264,7 +264,7 @@ header {
     padding: 3%;
     height: 90px;
     width: 100%;
-    background-color: #318b1b;
+    background-color: #e8a73e;
     position: fixed;
     top: 0;
     left: 0;
@@ -504,7 +504,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #04201391;
+    background-color: #f2b74891;
     color: #fbfbfb;
 }
 
