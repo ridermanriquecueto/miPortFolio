@@ -29,3 +29,19 @@ Explorar el Código: Si deseas explorar el código fuente de mi portafolio, pued
 
 Personalizar y Utilizar: Siéntete libre de personalizar mi portafolio según tus necesidades o utilizarlo como inspiración para tus propios proyectos.
 
+---
+
+## Notas de estilo y paleta (añadido)
+
+Este proyecto ahora usa una paleta "Neo-Mint + Midnight" y variables CSS para facilitar cambios globales de estilo.
+
+- Las variables están en `css/styles.css` dentro de `:root`.
+- Colores principales:
+	- `--bg`: #071229 — fondo
+	- `--primary`: #2ee6c7 — acento neo-mint
+	- `--accent`: #ffb399 — acento durazno
+
+Para cambiar la paleta, edita `css/styles.css` y modifica las variables en `:root`. También puedes añadir un toggle para modo claro/oscuro si lo deseas.
+
+Si quieres que actualice el `mailto:` en `index.html` con tu email real, dime la dirección y lo hago.
+

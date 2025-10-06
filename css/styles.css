@@ -1,3 +1,170 @@
+/* styles.css — Paleta moderna, variables y estilos reorganizados */
+:root{
+    /* Paleta Neo-Mint + Midnight: fondo profundo, acento neo-mint y acento secundario durazno */
+    --bg: #071229; /* azul noche profundo */
+    --surface: linear-gradient(180deg, rgba(8,18,36,0.9), rgba(6,12,25,0.9));
+    --card: #0b1530; /* tarjeta ligeramente distinto al fondo */
+    --muted: #9fb3c8; /* texto secundario suave */
+    --primary: #2ee6c7; /* neo-mint brillante */
+    --primary-600: #25c7ad;
+    --accent: #ffb399; /* durazno suave */
+    --accent-2: #ffd6c2; /* acento secundario claro */
+    --glass: rgba(255,255,255,0.03);
+    --glass-2: rgba(255,255,255,0.02);
+    --radius: 12px;
+    --shadow-1: 0 8px 26px rgba(2,8,20,0.65);
+    --shadow-2: 0 12px 36px rgba(2,8,20,0.75);
+    --max-width: 1100px;
+    --fw-heading: 700;
+}
+
+/* Reset y tipografías */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+    margin:0;
+    font-family: 'Belanosima', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    background: var(--bg);
+    color: #e6eef8;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:1.5;
+}
+
+/* Contenedor principal */
+main{max-width:var(--max-width);margin:2.5rem auto;padding:1rem}
+
+header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:1rem;
+    padding:1rem 1.25rem;
+    position:sticky;top:0;z-index:50;
+    background: linear-gradient(180deg, rgba(15,20,34,0.6), rgba(15,20,34,0.35));
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+.logo{height:56px;width:auto;border-radius:10px;box-shadow:var(--shadow-1)}
+
+/* Menú */
+#menu{list-style:none;margin:0;padding:0;display:flex;gap:.5rem;align-items:center}
+#menu .menu-item a{
+    color:var(--muted);text-decoration:none;padding:.5rem .8rem;border-radius:8px;transition:all .18s ease;
+}
+#menu .menu-item a:hover, #menu .menu-item a.active{
+    color:#fff;background:linear-gradient(90deg,var(--primary),var(--accent));box-shadow:0 6px 18px rgba(124,58,237,0.12);
+}
+
+/* Secciones */
+section.animated-background{
+    margin:2rem 0;padding:1.5rem;border-radius:var(--radius);background:var(--surface);box-shadow:var(--shadow-2);
+}
+
+.presentacion{padding:1rem}
+.presentacion h1{font-size:1.15rem;font-weight:600;color:#eaf4ff}
+.presentacion-img img{width:220px;height:220px;object-fit:cover;border-radius:16px;border:2px solid rgba(255,255,255,0.03)}
+
+/* Curriculum */
+.curriculum{display:flex;flex-direction:column;align-items:flex-start;gap:.75rem}
+.curriculum h2{color:var(--primary);margin:0}
+.btn#download-cv{background:linear-gradient(90deg,var(--accent),var(--primary));color:#04162a;border:none;padding:.6rem 1rem;border-radius:10px;box-shadow:0 8px 30px rgba(6,182,212,0.12)}
+
+/* Contacto */
+.contactame h2{color:var(--accent-2);text-shadow:0 2px 8px rgba(0,0,0,0.45)}
+.contactame{
+    background: linear-gradient(180deg, rgba(4,8,18,0.6), rgba(6,10,20,0.6));
+    padding:1rem;border-radius:14px;border:1px solid rgba(255,255,255,0.02);
+}
+.contactame form{
+    /* Fondo más oscuro y borde de acento neo-mint para destacar claramente */
+    background: linear-gradient(180deg, rgba(3,7,16,0.85), rgba(7,12,26,0.85));
+    padding:1.25rem;border-radius:12px;border-left:4px solid var(--primary); /* acento */
+    box-shadow: 0 18px 40px rgba(2,8,20,0.6);position:relative;z-index:10;
+}
+.contactame .form-group{margin-bottom:.75rem}
+.contactame label{display:block;color:var(--muted);font-size:.92rem;margin-bottom:.25rem}
+.contactame input,.contactame textarea{
+    width:100%;padding:.7rem .85rem;border-radius:10px;border:1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.02);color: #eaf4ff;outline: none;transition:all .12s ease
+}
+.contactame input:focus,.contactame textarea:focus{box-shadow:0 6px 20px rgba(46,230,199,0.06);border-color:var(--primary-600)}
+.contactame input::placeholder,.contactame textarea::placeholder{color:rgba(159,179,200,0.7)}
+.contactame button{background:linear-gradient(90deg,var(--accent),var(--primary));border:none;color:#071229;padding:.7rem 1.1rem;border-radius:12px;cursor:pointer;box-shadow:0 16px 40px rgba(124,58,237,0.06);font-weight:600}
+
+.redes-sociales p{color:var(--muted);margin:0 0 .6rem 0}
+
+/* Iconos de redes sociales: sobrescribir estilos inline y mantener tamaño coherente */
+.redes-sociales .icon{display:block;margin:0 auto .4rem auto;height:56px;width:auto;border-radius:8px;box-shadow:var(--shadow-1);padding:.3rem;background:var(--glass)}
+.redes-sociales .text-center{color:var(--muted);margin-top:0.25rem}
+
+/* Iconos SVG sociales */
+.social-link{display:inline-block;color:var(--muted);transition:transform .18s ease,color .18s ease}
+.social-link .svg-icon{display:block;fill:currentColor;width:56px;height:56px}
+.social-link:hover{transform:translateY(-4px);color:var(--primary)}
+.social-link:focus{outline:2px solid rgba(46,230,199,0.18);outline-offset:3px}
+
+/* Portafolio: tarjetas */
+.proyecto-card{display:flex;gap:1rem;align-items:flex-start;padding:1rem;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;margin-bottom:1rem;border:1px solid rgba(255,255,255,0.03)}
+.proyecto-card img{width:180px;height:120px;object-fit:cover;border-radius:10px}
+.proyecto-info{flex:1}
+.proyecto-titulo{margin:.1rem 0;color:var(--primary);font-weight:600}
+.proyecto-descripcion{color:var(--muted);margin:0;font-size:.95rem}
+
+/* Educación: Logos animados */
+.logos-fondo-animado{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;margin-top:1rem}
+.logos-fondo-animado img{height:44px;opacity:.95;border-radius:8px;background:var(--glass-2);padding:.35rem}
+
+/* ===== Educación y Habilidades ===== */
+.contenido-grid{display:grid;grid-template-columns:1fr 360px;gap:1.25rem;align-items:start}
+.educacion-panel h3, .habilidades-panel h3{margin-top:0;color:#eaf4ff}
+.timeline{padding:0;margin:0}
+.timeline-item{display:flex;gap:1rem;align-items:flex-start;margin-bottom:1rem}
+.timeline-year{min-width:86px;color:var(--primary);font-weight:700}
+.timeline-body h4{margin:.05rem 0;color:#fff}
+.timeline-body .muted{color:var(--muted);margin:0}
+
+.habilidades-panel{background:transparent;padding:0 0 .4rem}
+.skill{margin-bottom:1rem}
+.skill-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.45rem}
+.skill-percent{color:var(--muted);font-size:.95rem}
+.skill-bar{background:rgba(255,255,255,0.03);height:12px;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.03)}
+.skill-fill{height:100%;background:linear-gradient(90deg,var(--primary),var(--accent));border-radius:12px;box-shadow:0 6px 18px rgba(46,230,199,0.08);width:0%;transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+
+/* Animación al entrar en viewport */
+.skill-fill.animate{transition:width 1.2s cubic-bezier(.2,.8,.2,1);}
+.skill-list{font-size:.88rem;margin-top:.45rem}
+
+@media (max-width:980px){
+    .contenido-grid{grid-template-columns:1fr}
+    .habilidades-panel{order:2}
+}
+
+/* Footer */
+footer{display:flex;gap:2rem;justify-content:space-between;padding:2rem 1rem;background:transparent;color:var(--muted);border-top:1px solid rgba(255,255,255,0.02);margin-top:2rem}
+.footer-column h3{color:#cfe9ff}
+.footer-column ul{list-style:none;padding:0;margin:0}
+.footer-column li{margin:.45rem 0}
+.footer-column a{color:var(--muted);text-decoration:none}
+.footer-column a:hover{color:var(--primary)}
+
+/* Responsividad */
+@media (max-width:900px){
+    .proyecto-card{flex-direction:column;align-items:stretch}
+    .presentacion-img img{width:140px;height:140px}
+    header{padding:.6rem}
+}
+
+@media (max-width:480px){
+    #menu{display:none}
+    main{margin:1rem}
+    .presentacion h1{font-size:1rem}
+}
+
+/* Pequeños ajustes visuales */
+a{color:inherit}
+/* fin styles.css */
 /* Font */
 @import url('https://fonts.googleapis.com/css2?family=Belanosima&display=swap');
 
@@ -570,3 +737,23 @@ footer {
     width: 100%;
     height: auto;
 }
+
+/* ===== Mobile menu toggle ===== */
+.menu-toggle{
+    display:none; /* oculto por defecto, se muestra en pantallas pequeñas */
+    background: linear-gradient(90deg,var(--primary),var(--accent));
+    border:none;color:#fff;padding:.5rem .6rem;border-radius:10px;cursor:pointer;align-items:center;gap:.5rem;display:inline-flex
+}
+.menu-toggle .icon-bar{display:block;width:20px;height:2px;background:rgba(255,255,255,0.9);margin:3px 0;border-radius:2px}
+.menu-toggle .sr-only{position:absolute;left:-9999px}
+
+/* Mostrar el botón en pantallas pequeñas y cambiar el menú a columna */
+@media (max-width:480px){
+    .menu-toggle{display:inline-flex}
+    #menu{display:none;flex-direction:column;background:transparent;padding:.5rem;border-radius:8px;width:100%}
+    #menu.open{display:flex;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:.75rem;box-shadow:var(--shadow-1)}
+    #menu .menu-item a{display:block;padding:.6rem .8rem}
+}
+
+/* pequeña animación al abrir el menú */
+#menu{transition:all .22s ease}

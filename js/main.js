@@ -1,32 +1,36 @@
 // js/main.js
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Código existente para la navegación del menú
-    const menuPrincipalItems = document.querySelectorAll('.menu-item');
+    // Navegación del menú — más robusta: marca el <a> correcto y usa event delegation donde corresponde
+    const menuItems = document.querySelectorAll('#menu .menu-item');
 
-    menuPrincipalItems.forEach(function(item) {
-        item.addEventListener('click', function(e) {
-            const actualItem = document.querySelector('.active');
-            if (actualItem) {
-                actualItem.classList.remove('active');
-            }
-            // Asegurarse de que el 'active' se añada al elemento 'a' dentro del 'li'
-            // O a la 'li' misma, dependiendo de tu CSS. Si es el 'a', usa e.target.classList.add('active');
-            // Si es la 'li', usa item.classList.add('active');
-            // Para un click en el 'a' (el enlace), e.target es el 'a'
-            e.target.classList.add('active');
+    menuItems.forEach(function(li) {
+        // Click en toda la 'li' o en el <a> interno
+        li.addEventListener('click', function(e) {
+            // Encontrar el enlace más cercano
+            const link = e.target.closest('a');
+            if (!link) return; // si no hubo click sobre un enlace, salir
+
+            // Remover 'active' de todos los enlaces del menú
+            const enlaces = document.querySelectorAll('#menu .menu-item a');
+            enlaces.forEach(function(a){ a.classList.remove('active'); });
+
+            // Añadir 'active' al enlace clicado
+            link.classList.add('active');
         });
 
-        item.addEventListener('mouseover', function(e) {
-            const actualItem = document.querySelector('.mouseoverboton');
-            if (actualItem) {
-                actualItem.classList.remove('mouseoverboton');
-            }
-            e.target.classList.add('mouseoverboton');
+        // Hover: aplicar clase al <a> para coherencia con los estilos
+        li.addEventListener('mouseover', function(e) {
+            const link = e.target.closest('a');
+            // remover de cualquier enlace previo
+            const prev = document.querySelector('#menu .mouseoverboton');
+            if (prev) prev.classList.remove('mouseoverboton');
+            if (link) link.classList.add('mouseoverboton');
         });
 
-        item.addEventListener('mouseout', function(e) {
-            e.target.classList.remove('mouseoverboton');
+        li.addEventListener('mouseout', function(e) {
+            const link = e.target.closest('a');
+            if (link) link.classList.remove('mouseoverboton');
         });
     });
 
@@ -81,50 +85,45 @@ document.addEventListener('DOMContentLoaded', function() {
                 return; // Sale de la función si hay errores de validación
             }
 
-            // Si el formulario es válido, procede con la simulación de envío
-            console.log("Simulando envío del mensaje...");
+            // Recolectar valores del formulario
+            const nombre = (document.getElementById('nombre') && document.getElementById('nombre').value) ? document.getElementById('nombre').value.trim() : '';
+            const email = (document.getElementById('email') && document.getElementById('email').value) ? document.getElementById('email').value.trim() : '';
+            const telefono = (document.getElementById('Telefono') && document.getElementById('Telefono').value) ? document.getElementById('Telefono').value.trim() : '';
+            const mensaje = (document.getElementById('mensaje') && document.getElementById('mensaje').value) ? document.getElementById('mensaje').value.trim() : '';
 
-            // Simulación de un envío exitoso (puedes cambiar a 'false' para probar el error)
-            const simulacionExitosa = true;
+            // Construir un mailto prellenado como fallback (no requiere servicios externos)
+            const destinatario = 'ridermc@gmail.com'; // dirección principal
+            const asunto = `Contacto desde portafolio: ${nombre || 'Nuevo mensaje'}`;
+            const cuerpo = `Nombre: ${nombre}\nEmail: ${email}\nTeléfono: ${telefono}\n\nMensaje:\n${mensaje}`;
+            const mailtoLink = `mailto:${destinatario}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
 
-            if (simulacionExitosa) {
-                // Crear y mostrar mensaje de éxito
-                const mensajeExito = document.createElement('div');
-                mensajeExito.classList.add('alert', 'alert-success', 'mt-3', 'animate__animated', 'animate__fadeIn');
-                mensajeExito.setAttribute('role', 'alert'); // Para accesibilidad
-                mensajeExito.textContent = '¡Mensaje enviado con éxito! Gracias por contactarme.';
-                formularioContacto.parentNode.insertBefore(mensajeExito, formularioContacto.nextSibling);
-
-                // Opcional: Reiniciar el formulario después de la simulación
-                formularioContacto.reset();
-                // Quitar la clase de validación para que no aparezcan los mensajes al resetear
-                formularioContacto.classList.remove('was-validated');
-
-                // Opcional: Ocultar el mensaje de éxito después de unos segundos
-                setTimeout(function() {
-                    if (mensajeExito) {
-                        mensajeExito.classList.remove('animate__fadeIn');
-                        mensajeExito.classList.add('animate__fadeOut');
-                        mensajeExito.addEventListener('animationend', () => mensajeExito.remove(), { once: true });
-                    }
-                }, 3000); // Ocultar después de 3 segundos
-            } else {
-                // Crear y mostrar mensaje de error
-                const mensajeError = document.createElement('div');
-                mensajeError.classList.add('alert', 'alert-danger', 'mt-3', 'animate__animated', 'animate__fadeIn');
-                mensajeError.setAttribute('role', 'alert'); // Para accesibilidad
-                mensajeError.textContent = 'Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.';
-                formularioContacto.parentNode.insertBefore(mensajeError, formularioContacto.nextSibling);
-
-                // Opcional: Ocultar el mensaje de error después de unos segundos
-                setTimeout(function() {
-                    if (mensajeError) {
-                        mensajeError.classList.remove('animate__fadeIn');
-                        mensajeError.classList.add('animate__fadeOut');
-                        mensajeError.addEventListener('animationend', () => mensajeError.remove(), { once: true });
-                    }
-                }, 3000); // Ocultar después de 3 segundos
+            // Intentar abrir el cliente de correo del usuario en una nueva pestaña/ventana
+            try {
+                window.open(mailtoLink, '_blank');
+            } catch (err) {
+                // Fallback: asignar a location para intentar abrir el cliente nativo
+                window.location.href = mailtoLink;
             }
+
+            // Mostrar mensaje de éxito al usuario (aunque el envío se realice por mailto)
+            const mensajeExito = document.createElement('div');
+            mensajeExito.classList.add('alert', 'alert-success', 'mt-3', 'animate__animated', 'animate__fadeIn');
+            mensajeExito.setAttribute('role', 'alert'); // Para accesibilidad
+            mensajeExito.textContent = 'Se abrió tu cliente de correo con el mensaje prellenado. Si no se abre, copia y pega tu mensaje o contáctame por WhatsApp.';
+            formularioContacto.parentNode.insertBefore(mensajeExito, formularioContacto.nextSibling);
+
+            // Reiniciar el formulario y clases de validación
+            formularioContacto.reset();
+            formularioContacto.classList.remove('was-validated');
+
+            // Ocultar el mensaje de éxito después de unos segundos
+            setTimeout(function() {
+                if (mensajeExito) {
+                    mensajeExito.classList.remove('animate__fadeIn');
+                    mensajeExito.classList.add('animate__fadeOut');
+                    mensajeExito.addEventListener('animationend', () => mensajeExito.remove(), { once: true });
+                }
+            }, 5000); // Ocultar después de 5 segundos
         });
     }
 
@@ -153,41 +152,43 @@ document.addEventListener('DOMContentLoaded', function() {
     // También, si 'particlesJS' ya se inicializa con una configuración por defecto,
     // estas llamadas subsiguientes podrían sobreescribirla o añadir nuevas instancias.
 
-    // Configuración para el #particles-js principal
-    // Si tienes un config.json, usa particlesJS.load, de lo contrario, define la configuración aquí.
+    // Configuración para Particles.js — evitar doble inicialización si ya fue creada por otro script
     if (typeof particlesJS !== 'undefined') {
-        particlesJS.load('particles-js', 'config.json', function() {
-            console.log('callback - particles.js config loaded for #particles-js');
-        });
+        // Si el contenedor principal no tiene aún el canvas creado, podemos cargar una config por defecto
+        const mainContainerCanvas = document.querySelector('#particles-js > .particles-js-canvas-el');
+        if (!mainContainerCanvas) {
+            // Cargar config solo si el canvas no existe (evita colisiones con app.js que puede inicializar inline)
+            if (typeof particlesJS.load === 'function') {
+                particlesJS.load('particles-js', 'config.json', function() {
+                    console.log('callback - particles.js config loaded for #particles-js');
+                });
+            }
+        }
 
         // Obtener todos los contenedores de Particles.js con IDs específicos
         const containers = document.querySelectorAll('[id^="particles-js-"]');
 
-        // Inicializar Particles.js en cada contenedor
+        // Inicializar Particles.js en cada contenedor solo si no existe ya el canvas dentro
         containers.forEach(container => {
-            // Asumiendo que tienes un archivo de configuración para cada uno o que todos usan 'config.json'
-            let configFileName = 'config.json'; // Por defecto
-            if (container.id === 'particles-js-acerca-de-mi') {
-                configFileName = 'config-acerca-de-mi.json'; // Si tienes una config específica
-            }
-            // Agrega más 'if' o un mapeo si tienes otras configuraciones por ID
-            if (container.id === 'particles-js-curriculum') {
-                configFileName = 'config-curriculum.json'; // Ejemplo
-            }
-            if (container.id === 'particles-js-contacto') {
-                configFileName = 'config-contacto.json'; // Ejemplo
-            }
-            if (container.id === 'particles-js-port-folio') {
-                configFileName = 'config-portfolio.json'; // Ejemplo
-            }
-            if (container.id === 'particles-js-educacion') {
-                configFileName = 'config-educacion.json'; // Ejemplo
-            }
+            const hasCanvas = container.querySelector('.particles-js-canvas-el');
+            if (hasCanvas) return; // ya inicializado por otro script
 
+            // Mapeo sencillo de nombres de config por id
+            let configFileName = 'config.json';
+            const map = {
+                'particles-js-acerca-de-mi': 'config-acerca-de-mi.json',
+                'particles-js-curriculum': 'config-curriculum.json',
+                'particles-js-contacto': 'config-contacto.json',
+                'particles-js-port-folio': 'config-portfolio.json',
+                'particles-js-educacion': 'config-educacion.json'
+            };
+            if (map[container.id]) configFileName = map[container.id];
 
-            particlesJS.load(container.id, configFileName, function() {
-                console.log(`callback - particles.js config loaded for #${container.id}`);
-            });
+            if (typeof particlesJS.load === 'function') {
+                particlesJS.load(container.id, configFileName, function() {
+                    console.log(`callback - particles.js config loaded for #${container.id}`);
+                });
+            }
         });
     }
 
@@ -235,6 +236,39 @@ document.addEventListener('DOMContentLoaded', function() {
         loadPdfVistaPrevia(pdfUrl);
     } else {
         // console.log('PDF.js canvas or library not found, skipping PDF preview.');
+    }
+
+    // ===== Animación de entrada para barras de habilidades =====
+    const habilidadesPanel = document.querySelector('.habilidades-panel');
+    if (habilidadesPanel && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const fills = habilidadesPanel.querySelectorAll('.skill-fill');
+                    fills.forEach(fill => {
+                        const parent = fill.closest('.skill-bar');
+                        const pct = parent ? parent.getAttribute('data-percent') : null;
+                        if (pct) {
+                            fill.classList.add('animate');
+                            // Forzar reflow para asegurar transición
+                            void fill.offsetWidth;
+                            fill.style.width = pct + '%';
+                        }
+                    });
+                    obs.unobserve(habilidadesPanel); // solo una vez
+                }
+            });
+        }, { threshold: 0.25 });
+
+        observer.observe(habilidadesPanel);
+    } else if (habilidadesPanel) {
+        // Fallback: aplicar inmediatamente
+        const fills = habilidadesPanel.querySelectorAll('.skill-fill');
+        fills.forEach(fill => {
+            const parent = fill.closest('.skill-bar');
+            const pct = parent ? parent.getAttribute('data-percent') : null;
+            if (pct) fill.style.width = pct + '%';
+        });
     }
 });
 
