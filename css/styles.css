@@ -106,9 +106,28 @@ section.animated-background{
 .social-link:focus{outline:2px solid rgba(46,230,199,0.18);outline-offset:3px}
 
 /* Portafolio: tarjetas */
-.proyecto-card{display:flex;gap:1rem;align-items:flex-start;padding:1rem;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;margin-bottom:1rem;border:1px solid rgba(255,255,255,0.03)}
-.proyecto-card img{width:180px;height:120px;object-fit:cover;border-radius:10px}
-.proyecto-info{flex:1}
+.proyecto-card{
+    display:flex;
+    flex-direction:column; /* imagen arriba, texto debajo */
+    align-items:center;
+    gap:0.8rem;
+    padding:1rem;
+    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius:12px;
+    margin-bottom:1rem;
+    border:1px solid rgba(255,255,255,0.03);
+    text-align:center; /* centrar títulos y textos */
+}
+.proyecto-card img{
+    width:100%;
+    max-width:360px; /* mantener proporción, adaptarse a pantallas pequeñas */
+    height:220px;
+    object-fit:cover;
+    border-radius:10px;
+    display:block;
+    margin:0 auto;
+}
+.proyecto-info{flex:unset;width:100%}
 .proyecto-titulo{margin:.1rem 0;color:var(--primary);font-weight:600}
 .proyecto-descripcion{color:var(--muted);margin:0;font-size:.95rem}
 
