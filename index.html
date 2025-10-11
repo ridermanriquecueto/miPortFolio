@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIDER MANRIQUE</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Belanosima&display=swap">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.302/pdf.min.js"></script>
+    
+
+</head>
+<body>
+
+<div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></div>
+<div class="animate__animated animate__bounce">¡Hola, mundo!</div>
+<header>
+    <a href="#AcercaDeMi" aria-label="Ir a la sección de AcercaDeMi">
+        <img src="img/logo.png" alt="RyderMan" class="logo">
+    </a>
+
+    <nav>
+        <ul id="menu">
+            <li class="menu-item">
+                <a href="#AcercaDeMi" class="active">AcercaDeMi</a>
+            </li>
+            <li class="menu-item">
+                <a href="#contacto" class="active">Contacto</a>
+            </li>
+            <li class="menu-item">
+                <a href="#Curriculum" id="curriculum-link" class="active">Curriculum</a>
+            </li>
+            <li class="menu-item">
+                <a href="#PortFolio" class="active">PortFolio</a>
+            </li>
+            
+           <li class="menu-item">
+            <a href="#Educacion"  class="active">Educacion</a>
+           </li>
+
+           
+            <li class="menu-item">
+                <a href="#MiMusica" class="active">MiMusica</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<main>
+    <section id="AcercaDeMi" class="animated-background">
+        <div id="particles-js-acerca-de-mi"></div>
+        <figure class="presentacion-img">
+            <img src="img/rider.jpg" alt="rider">
+        </figure>
+        <article class="presentacion">
+
+            <p>
+                <h1>HOLA! YO SOY RENATO MANRIQUE: Soy un entusiasta de la informática y un apasionado desarrollador frontend. Mi fascinación por la tecnología y el diseño me ha llevado a explorar y dominar las últimas tendencias en desarrollo web, creando experiencias visuales y funcionales excepcionales para los usuarios. Mi dedicación a la excelencia se refleja en mi constante búsqueda de conocimiento y en mi compromiso de mantenerme al día con las últimas herramientas y lenguajes de programación.</h1>
+            </p>
+
+
+
+        </article>
+    </section>
+    <section id="Curriculum" class="animated-background">
+        <div id="particles-js-curriculum"></div>
+        <article class="curriculum">
+            <h2>Quieres Descargar Mi Curriculum? Haz clic abajo</h2>
+            <a href="https://drive.google.com/file/d/1qBVtkEBoMtIfD2D2Ixb4iDp0pyYj48Jq/view?usp=drive_link" aria-label="Descargar cv" target="_blank" class="btn" id="download-cv">Descargar mi CV</a>
+        </article>
+    </section>
+   
+
+
+    <section id="contacto" class="animated-background">
+        <div id="particles-js-contacto"></div>
+
+        <article class="contactame">
+            <h2>CONTACTAME!</h2>
+            <form id="formularioContacto" class="needs-validation" novalidate>
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Telefono:</label>
+                    <input type="int" class="form-control" id="Telefono name="nombre" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea class="form-control" id="mensaje" name="mensaje" rows="4" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+
+            </form>
+            <div class="redes-sociales mt-3">
+                <p>Sígueme en las redes sociales: Click en lo que deseas</p>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <a href="https://github.com/ridermanriquecueto" target="_blank" aria-label="Ir al perfil de GitHub">
+                            <img src="img/github.png" class="icon" style="margin-top: 1cm;">
+                        </a>
+                        <p class="text-center">GitHub</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <a href="https://www.linkedin.com/in/rider-manrique-538876240/" target="_blank" aria-label="Ir al perfil de LinkedIn">
+                            <img src="img/linkedin.png" class="icon" style="margin-top: 1cm;">
+                        </a>
+                        <p class="text-center">LinkedIn</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <a href="https://www.gmail.com/mail/help/intl/es/about.html?iframe" target="_blank" aria-label="Enviar mail">
+                            <img src="img/mail.png" class="icon" style="margin-top: 1cm;">
+                        </a>
+                        <p class="text-center">Gmail</p>
+                    </div>
+                </div>
+                
+            </div>
+
+
+
+        </article>
+
+
+    </section>
+
+    <section id="PortFolio" class="animated-background">
+        <div id="particles-js-port-folio"></div>
+        <h2>Proyectos Realizados</h2>
+        <article class="PortFolio-principal">
+
+
+            <!-- Lista de proyectos -->
+            <ul id="proyectos" class="proyectos-lista">
+                <!-- Primer proyecto -->
+                <li class="proyecto">
+                    <img src="img\img_2023.jpeg" alt="Captura de pantalla del proyecto 1" class="imagen-proyecto">
+                    <div class="descripcion-proyecto">
+                        <h1>Gestión de Instituto</h1>
+                        <a href="https://github.com/ridermanriquecueto/gestionInstituto" target="_blank">Ver en GitHub</a>
+                    </div>
+                </li>
+
+                <!-- Segundo proyecto -->
+                <li class="proyecto">
+                    <img src="img\cpt.jpeg" alt="Captura de pantalla del proyecto 2" class="imagen-proyecto">
+                    <div class="descripcion-proyecto">
+                        <h2>Proyecto 2</h2>
+                        <p>crud_python_sqlite3</p>
+                        <a href="https://github.com/ridermanriquecueto/crud_python_sqlite3.io.git">Ver en GitHub
+                    </div>
+                </li>
+
+                <!-- Tercer proyecto -->
+                <li class="proyecto">
+                    <img src="img\pke.jpeg" alt="Captura de pantalla del proyecto 3" class="imagen-proyecto">
+                    <div class="descripcion-proyecto">
+                        <h3>Proyecto 3</h3>
+                        <p>pokkemones!!</p>
+                        <a href="https://ridermanriquecueto.github.io/pokemonnes.github.io/">Ver en github
+                    </div>
+                </li>
+            </ul>
+        </article>
+    </section>
+    <section id="Educacion" class="animated-background">
+        <article class="educacion">
+            <a href="img/TODOS LOS CERTFICADOS JUNTOS.pdf" target="_blank" class="movimiento-letra">Ver todos los certificados</a>
+            <div class="logos-tecnologias">
+                <img src="img\htt.png" alt="HTML Logo">
+                <img src="img\cs.png" alt="CSS Logo">
+                <img src="img\js.png" alt="JavaScript Logo">
+                <img src="img\boostrap.jfif" alt="Bootstrap Logo">
+                <img src="img\gitt.png" alt="Git Logo">
+                <img src="img\vsualC.png" alt="VisualCode">
+                <img src="img\tk.png" alt="tk">
+                <img src="img\py.png" alt="py">
+                <img src="img\node.png" alt="node">
+                <img src="img\react.png" alt="react">
+                <img src="img\gitt.png" alt="db">
+                <img src="img\go.jpg" alt="go">
+                <!-- Agrega aquí más imágenes de los logos de las tecnologías -->
+            </div>
+          
+        </article>
+    </section>
+    
+    <section id="MiMusica" class="animated-background">
+        <!-- Contenedor para las partículas de lluvia -->
+      
+    
+        <!-- Otros elementos de la sección -->
+        <div id="particles-js-mi-musica"></div>
+        <div class="menu-item"><a href="#MiMusica">Mi Música</a></div>
+        <audio id="audioPlayer" controls autoplay>
+            <source src="img/10 Lima NO.m4a" type="audio/mp3">
+            <source src="img/Chichi Peralta - La Ciguapa.mp3" type="audio/mp3">
+            <source src="img/saliditas contigo - manolito y su trabuco.mp3" type="audio/mp3">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+    </section>
+    
+    
+    
+        
+</main>
+
+
+
+<footer>
+   
+       
+            <div class="footer-column">
+                <h3>Enlaces Importantes</h3>
+                <ul>
+                    <li><a href="/servicios">Servicios</a></li>
+                    <li><a href="/precios">Precios</a></li>
+                    <li><a href="/preguntas-frecuentes">Preguntas Frecuentes</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Políticas</h3>
+                <ul>
+                    <li><a href="/politica-de-privacidad">Política de Privacidad</a></li>
+                    <li><a href="/politica-de-cookies">Política de Cookies</a></li>
+                    <li><a href="/terminos-de-servicio">Términos de Servicio</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Redes Sociales</h3>
+                <ul>
+                    <li><a href="https://www.facebook.com/tudominio">Facebook</a></li>
+                    <li><a href="https://twitter.com/tudominio">Twitter</a></li>
+                    <li><a href="https://www.instagram.com/tudominio">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        
+    </footer>
+    
+    
+
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/particles.js"></script>
+<script src="js/app.js"></script>
+
+
+
+</body>
+</html>

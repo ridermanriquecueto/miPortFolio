@@ -1,0 +1,559 @@
+
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Belanosima&display=swap');
+
+/* Estilos generales */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Belanosima', sans-serif;
+    font-size: 18px;
+    line-height: 1.2;
+    background-color: #eeeef514;
+   
+    
+    background-size: cover;
+    background-position: center;
+   
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #f5e6e6;
+}
+
+h1 {
+    font-size: 32px;
+    text-align: center;
+    color: #f5e6e6;
+}
+
+h2 {
+    font-size: 32px;
+    color: #f5e6e6;
+}
+
+p {
+    margin: 18px 1;
+    color: #f5e6e6;
+   
+}
+
+/* Para prevenir que las imágenes "rompan" la página */
+img {
+    max-width: 100%;
+}
+
+
+/*ver mover cv*/
+
+
+.curriculum {
+    text-align: center;
+}
+
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+@keyframes moveCVSection {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(20px, 20px); }
+}
+
+.move-cv-section {
+    animation: moveCVSection 2s ease infinite alternate;
+}
+
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Estilos para la sección de educación */
+#Educacion {
+    position: relative;
+    overflow: hidden;
+    background-color: #0336083e;
+    padding: 20px;
+}
+
+/* Estilos para la letra con movimiento */
+.movimiento-letra {
+    display: inline-block;
+    animation: moverSerpiente 5s linear infinite;
+    font-size: 50px; /* Tamaño de la letra */
+}
+
+@keyframes moverSerpiente {
+    0% {
+        transform: translateX(0);
+        color: #4a6527; /* Rojo */
+    }
+    25% {
+        transform: translateX(50px);
+        color: #254325; /* Verde */
+    }
+    50% {
+        transform: translateX(100px);
+        color: #3a9525; /* Azul */
+    }
+    75% {
+        transform: translateX(50px);
+        color: #10e445; /* Magenta */
+    }
+    100% {
+        transform: translateX(0);
+        color: #ffff00; /* Amarillo */
+    }
+}
+
+
+
+
+
+.proyecto {
+    list-style: none;
+    margin-bottom: 10px;
+    overflow: hidden; /* Limpiar el float */
+}
+
+.imagen-proyecto {
+    width: 10%; /* Ajusta este valor según tu preferencia para achicar la imagen a una cuarta parte */
+    float: left;
+    margin-right: 2px; /* Añade un pequeño espacio entre la imagen y el texto */
+}
+
+.descripcion-proyecto {
+    overflow: hidden; /* Limpiar el float */
+}
+
+/* Estilos adicionales según tu diseño */
+.proyectos-lista {
+    list-style: none;
+    display: flex;
+    justify-content: space-between; /* Ajusta según tus preferencias */
+    margin: 0;
+    padding: 0;
+}
+
+.proyecto {
+    flex: 0 0 30%; /* Ajusta el porcentaje para controlar el ancho de cada proyecto */
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.imagen-proyecto {
+    width: 50%; /* Ajusta para que la imagen ocupe el 100% del contenedor */
+}
+
+.descripcion-proyecto {
+    margin-top: 10px; /* Añade espacio entre la imagen y la descripción */
+}
+
+
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3%;
+    height: 90px;
+    width: 100%;
+    background-color: #318b1b;
+    /* Para que quede fijo en la ventana */
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* Para agregarle una sombra */
+    box-shadow: 0 3px 10px -5px #0e0d0d;
+    
+}
+
+.logo {
+    width: 100px;
+}
+
+/* Menú de navegación */
+ul#menu {
+    display: flex;
+    font-size: 20px;
+    
+}
+
+li.menu-item a {
+    color:#f5e6e6;
+    padding: 16px;
+    display: inline-block;
+}
+
+li.menu-item a.active{
+    font-weight: bold;
+}
+
+li.menu-item a:hover{
+    color: #ee4c1b;
+}
+
+/* Main */
+
+main {
+    max-width: 1200px;
+    margin: auto;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    min-height: 50vh;
+    /* lugar para el header */
+
+}
+
+
+
+
+/* Sección Inicio */
+section#AcercaDeMi {
+    justify-content: space-around;
+    padding-top: 120px; 
+}
+
+figure.presentacion-img {
+    margin-bottom: 10px;
+    
+}
+
+
+figure.presentacion-img img {
+   
+    border-radius: 50%;
+    width: 320px;
+    height: 300px;
+    padding: 3px;
+    
+}
+#AcercaDeMi{
+    flex-direction: row;
+    margin top: 200px;
+}
+
+
+article.presentacion {
+    max-width: 80vh;
+    text-align: justify;
+    letter-spacing: 1.2px;
+    text-shadow: 1px 0px;
+    margin-top: 120px;
+    }
+
+a.btn {
+    background-color: #ee4c1b;
+    color: #faf5f5;
+    padding: 12px 20px;
+    border-radius: 50px;
+    font-size: 40px;
+    display: inline-block;
+    box-shadow: 0px 2px 0px 1px rgba(0, 0, 0, 0.2);
+    margin-top: 20%;
+    
+
+    
+ 
+    
+}
+
+a.btn:hover {
+    background-color:#ec8f78;
+    color:  #131212d4;
+    color: rgb(158, 204, 202);
+}
+
+/* Sección Aprendi*/
+section#PortFolio {
+    text-align: center;
+    
+}
+
+article.PortFolio-principal {
+    background: #114419d5;
+    text-align: center;
+    padding: 0%;
+    border-radius: 10px;
+}
+
+ul#PortFolio-items {
+    display: flex;
+}
+
+ul#PrtFolio-items li {
+    padding: 8px;
+    border-radius: 4px;
+}
+
+img.PortFoliocon {
+    width: 300px;
+}
+
+/* Sección Contacto */
+section#contacto p {
+    text-align: center;
+    color: #f5e6e6;
+}
+
+article.contactame {
+    background: #a4caa4;
+    text-align: center;
+    padding: 90px;
+    border-radius: 50px;
+    letter-spacing: 1.2%;
+    text-shadow: 1px 0px;
+     margin: 12%;
+     font-size: 18px;
+   
+   
+ 
+    border-radius: 5vh;
+    margin-top: 1%;
+    
+    text-shadow:  50%;
+    border-radius: 5vh;
+}
+
+ul#contact-links {
+    display: flex;
+    margin-top: -60px;
+   
+
+}
+
+ul#contact-links li {
+    margin: 18px;
+    padding: 10px;
+    border-radius: 4px;
+}
+ul#contact-links li:hover {
+    transform: scale(0.98);
+    box-shadow: 3px 2px 22px 1px rgba(32, 31, 31, 0.24);  
+   
+}
+
+img.icon {
+    width: 100px;
+
+    height: 100px;
+
+    
+}
+/*pare de educacion animado*/
+
+.logos-tecnologias {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px; /* Altura fija para los logos */
+    overflow: hidden; /* Ocultar elementos que salgan del contenedor */
+}
+
+.logos-tecnologias img {
+    width: 80px; /* Tamaño fijo para los logos */
+    height: 80px; /* Tamaño fijo para los logos */
+    opacity: 0; /* Inicialmente ocultar los logos */
+    transition: opacity 0.5s ease-in-out; /* Transición suave para la aparición y desaparición */
+}
+
+/* Animación circular */
+@keyframes aparecer-desaparecer {
+    0% {
+        transform: scale(0); /* Inicialmente, los elementos están ocultos (escala 0) */
+        opacity: 0; /* Inicialmente, los elementos están ocultos (opacidad 0) */
+    }
+    50% {
+        transform: scale(1); /* Al 50% de la animación, los elementos aparecen completamente (escala 1) */
+        opacity: 1; /* Al 50% de la animación, los elementos aparecen completamente (opacidad 1) */
+    }
+    100% {
+        transform: scale(0); /* Al final de la animación, los elementos vuelven a estar ocultos (escala 0) */
+        opacity: 0; /* Al final de la animación, los elementos vuelven a estar ocultos (opacidad 0) */
+    }
+}
+
+.logos-tecnologias img {
+    animation: aparecer-desaparecer 5s infinite; /* Aplicar la animación circular */
+}
+
+
+
+
+
+/* Footer */
+footer {
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #04201391;
+    color: #fbfbfb;
+}
+/* mobile */
+section {
+    display: flex;
+    flex-direction: column;
+   }
+   h1 {
+    font-size: 36px;
+   }
+   /* desktop */
+   
+@media screen and (min-width: 1024px){
+    body {
+        font-size: 18px;
+        line-height: 1.2;
+    }
+    h1 {
+        font-size: 26px;
+        text-align: center;
+    }
+    section#AcerdaDeMi {
+        justify-content: space-around;
+        padding-top: 120px;
+    }
+    figure.presentacion-img img {
+        border-radius: 50%;
+        width: 250px;
+        margin-top: 50px;
+    }
+    ul#menu {
+        font-size: 18px; 
+    }
+    li.menu-item a {
+        padding: 12px;
+    }
+    img.PortFoliocon {
+        width: 250px;
+        margin-top: 15% ;
+    }
+    article.PortFolio-items{
+
+        width: 50px;
+        margin-top: 50px;
+
+    }
+    article.PortFolio-principal{
+    margin-top: 5%;
+
+    }
+    img.icon {
+        width: 60px;
+        margin-top: -50px;
+    }
+    header{
+        padding: 3%;
+    }
+}
+
+/* Añade este estilo al final del archivo styles.css */
+
+
+
+.animated-background {
+    background: linear-gradient(45deg, rgba(12, 74, 46, 0.137), rgb(74, 177, 83),rgba(9, 78, 58, 0.007),rgb(5, 49, 49),rgb(3, 41, 23),rgb(6, 66, 66),rgba(10, 80, 6, 0.497));
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #2f6e20;
+    background-size: cover;
+    background-position: 50% 50%;
+    z-index: -1;
+  }
+@keyframes scroll {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(100px); }
+}
+
+.scroll-animation {
+  animation: scroll 2s infinite alternate;
+}
+  
+@keyframes scroll {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(100px); }
+  }
+  
+  .scroll-animation {
+    animation: scroll 2s infinite alternate;
+  }
+  #particles-js-acerca-de-mi,
+  #particles-js-port-folio,
+  #particles-js-contacto {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* Asegúrate de que los contenedores estén detrás del contenido de la sección */
+  }
+ /* Estilos para dispositivos móviles */
+@media screen and (max-width: 767px) {
+    section#AcercaDeMi {
+        flex-direction: column; /* Cambia la dirección del flexbox a columna */
+        align-items: center; /* Centra los elementos en el eje transversal */
+        padding-top: 60px; /* Reduce el espacio superior */
+    }
+
+    figure.presentacion-img img {
+        width: 200px; /* Cambia el tamaño de la imagen */
+        height: 200px; /* Cambia el tamaño de la imagen */
+        margin-top: 20px; /* Ajusta el margen superior */
+    }
+}
+
+/* Estilos generales */
+
+/* Estilos para pantallas pequeñas (celulares) */
+@media (max-width: 767px) {
+    /* Agrega tus estilos para pantallas pequeñas aquí */
+}
+
+/* Estilos para pantallas medianas (tablets) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    /* Agrega tus estilos para pantallas medianas aquí */
+}
+
+/* Estilos para pantallas grandes (escritorio) */
+@media (min-width: 1024px) {
+    /* Agrega tus estilos para pantallas grandes aquí */
+}
+   
