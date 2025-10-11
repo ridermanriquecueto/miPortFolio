@@ -9,12 +9,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Belanosima&display=swap">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.302/pdf.min.js"></script>
 </head>
 
 <body>
-    <div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></div>
-    <div class="animate__animated animate__bounce">¡Hola, mundo!</div>
+    <div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;"></div> 
+    
+    <div id="logos-fondo-global-container" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;">
+        </div>
     <header>
         <a href="#AcercaDeMi" aria-label="Ir a la sección de AcercaDeMi">
             <img src="img/logo.png" alt="RyderMan" class="logo">
@@ -28,17 +29,22 @@
                 <li class="menu-item"><a href="#Educacion" class="active">Educación</a></li>
             </ul>
         </nav>
-    </header>
+        </header>
+    
     <main>
-        <section id="AcercaDeMi" class="animated-background">
-            <div id="particles-js-acerca-de-mi"></div>
-            <figure class="presentacion-img">
-                <img src="img/rider.jpg" alt="Foto de Rider Manrique">
-            </figure>
-            <article class="presentacion">
-                <h1>¡Hola! Soy Rider Manrique, Analista de Sistemas y Desarrollador Web Full-Stack con experiencia en la creación de aplicaciones web completas. Domino el Frontend con React, HTML, CSS y JavaScript, y el Backend con Python (Django) y Java (Spring Boot, Micronaut), incluyendo microservicios. Experiencia en bases de datos como MySQL y PostgreSQL, y manejo de herramientas como Git y Postman. Mi enfoque es desarrollar soluciones robustas, responsivas y optimizadas para la experiencia del usuario, contribuyendo a proyectos innovadores.</h1>
-            </article>
+        <section id="AcercaDeMi" class="animated-background presentacion-section">
+            <div class="presentacion-content">
+                <figure class="presentacion-img">
+                    <img src="img/rider.jpg" alt="Foto de Rider Manrique" class="perfil-img-mejorada">
+                </figure>
+                <article class="presentacion">
+                    <div class="presentacion-text-box">
+                        <h1>¡Hola! Soy Rider Manrique, Analista de Sistemas y Desarrollador Web Full-Stack con experiencia en la creación de aplicaciones web completas. Domino el Frontend con React, HTML, CSS y JavaScript, y el Backend con Python (Django) y Java (Spring Boot, Micronaut), incluyendo microservicios. Experiencia en bases de datos como MySQL y PostgreSQL, y manejo de herramientas como Git y Postman. Mi enfoque es desarrollar soluciones robustas, responsivas y optimizadas para la experiencia del usuario, contribuyendo a proyectos innovadores.</h1>
+                    </div>
+                </article>
+            </div>
         </section>
+        
         <section id="Curriculum" class="animated-background">
             <div id="particles-js-curriculum"></div>
             <article class="curriculum">
@@ -47,6 +53,7 @@
                     aria-label="Descargar currículum" target="_blank" class="btn" id="download-cv">Descargar mi CV</a>
             </article>
         </section>
+        
         <section id="contacto" class="animated-background">
             <div id="particles-js-contacto"></div>
             <article class="contactame">
@@ -61,8 +68,8 @@
                         <input type="email" class="form-control" id="email" name="email" required>
                     </div>
                     <div class="form-group">
-                        <label for="nombre">Telefono:</label>
-                        <input type="number" class="form-control" id="Telefono" name="telefono" required>
+                        <label for="Telefono">Teléfono:</label>
+                        <input type="tel" class="form-control" id="Telefono" name="telefono" required>
                     </div>
                     <div class="form-group">
                         <label for="mensaje">Mensaje:</label>
@@ -73,64 +80,57 @@
                 <div class="redes-sociales mt-3">
                     <p>Sígueme en las redes sociales: haz clic en el icono que desees</p>
                     <div class="row">
-                        <div class="col-sm-4 text-center">
-                            <a href="https://github.com/ridermanriquecueto" target="_blank" aria-label="Ir al perfil de GitHub" class="social-link">
-                                <!-- GitHub SVG -->
+                        <div class="col-6 col-sm-4 text-center">
+                            <a href="https://github.com/ridermanriquecueto" target="_blank" aria-label="Ir al perfil de GitHub" class="social-link github-link">
                                 <svg class="icon svg-icon" viewBox="0 0 24 24" width="56" height="56" aria-hidden="true">
                                     <path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.15-.02-2.08-3.2.7-3.88-1.54-3.88-1.54-.52-1.32-1.28-1.67-1.28-1.67-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.72-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.27 1.19-3.07-.12-.29-.52-1.45.11-3.02 0 0 .97-.31 3.18 1.18.92-.26 1.9-.39 2.88-.39.98 0 1.96.13 2.88.39 2.2-1.49 3.17-1.18 3.17-1.18.64 1.57.24 2.73.12 3.02.74.8 1.18 1.82 1.18 3.07 0 4.41-2.69 5.38-5.25 5.66.41.36.77 1.07.77 2.16 0 1.56-.01 2.81-.01 3.19 0 .3.2.66.79.55C20.71 21.39 24 17.08 24 12c0-6.35-5.15-11.5-12-11.5z"/>
                                 </svg>
+                                <p class="text-center">GitHub</p>
                             </a>
-                            <p class="text-center">GitHub</p>
                         </div>
-                        <div class="col-sm-4 text-center">
-                            <a href="https://www.linkedin.com/in/rider-manrique-538876240/" target="_blank" aria-label="Ir al perfil de LinkedIn" class="social-link">
-                                <!-- LinkedIn SVG -->
+                        <div class="col-6 col-sm-4 text-center">
+                            <a href="https://www.linkedin.com/in/rider-manrique-538876240/" target="_blank" aria-label="Ir al perfil de LinkedIn" class="social-link linkedin-link">
                                 <svg class="icon svg-icon" viewBox="0 0 24 24" width="56" height="56" aria-hidden="true">
                                     <path fill="currentColor" d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.3c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.3h-3v-4.8c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.84 1.25-1.84 2.55v4.88h-3v-9h2.88v1.23h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.6v5.73z"/>
                                 </svg>
+                                <p class="text-center">LinkedIn</p>
                             </a>
-                            <p class="text-center">LinkedIn</p>
                         </div>
-                        <div class="col-sm-4 text-center">
-                            <a href="mailto:ridermc@gmail.com" target="_blank" aria-label="Enviar mail" class="social-link">
-                                <!-- Mail SVG -->
+                        <div class="col-6 col-sm-4 text-center">
+                            <a href="mailto:ridermc@gmail.com" target="_blank" aria-label="Enviar mail" class="social-link email-link">
                                 <svg class="icon svg-icon" viewBox="0 0 24 24" width="56" height="56" aria-hidden="true">
                                     <path fill="currentColor" d="M12 12.713l11.985-8.713h-23.97l11.985 8.713zm0 2.574l-12-8.727v11.44c0 1.104.896 2 2 2h20c1.104 0 2-.896 2-2v-11.44l-12 8.727z"/>
                                 </svg>
+                                <p class="text-center">Email</p>
                             </a>
-                            <p class="text-center">Email</p>
                         </div>
-                        <!-- Segunda fila con WhatsApp e Instagram -->
-                    </div>
-                    <div class="row mt-2">
-                        <div class="col-sm-6 text-center">
-                            <a href="https://wa.me/542216769436?text=Hola%20Rider%2C%20te%20contacto%20desde%20tu%20portafolio" target="_blank" aria-label="Enviar WhatsApp" class="social-link">
-                                <!-- WhatsApp SVG -->
+                        <div class="col-6 col-sm-6 text-center">
+                            <a href="https://wa.me/542216769436?text=Hola%20Rider%2C%20te%20contacto%20desde%20tu%20portafolio" target="_blank" aria-label="Enviar WhatsApp" class="social-link whatsapp-link">
                                 <svg class="icon svg-icon" viewBox="0 0 24 24" width="56" height="56" aria-hidden="true">
                                     <path fill="currentColor" d="M20.52 3.48A11.88 11.88 0 0012 .25C5.66.25.75 5.16.75 11.5c0 2.03.53 3.92 1.48 5.58L.02 23.25l6.4-1.66a11.73 11.73 0 005.58 1.43c6.34 0 11.25-4.91 11.25-11.25 0-3.01-1.17-5.83-3.73-7.79zM12 21.5c-1.74 0-3.44-.46-4.94-1.32l-.35-.2-3.81.99 1.02-3.71-.22-.38A8.25 8.25 0 013.75 11.5 8.25 8.25 0 1112 19.75zM17.1 14.3c-.3-.15-1.76-.86-2.03-.96-.27-.1-.47-.15-.67.15s-.77.96-.95 1.15c-.17.19-.35.22-.65.07-.3-.15-1.26-.47-2.4-1.48-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.12.3-.32.45-.48.15-.16.2-.27.3-.45.1-.18.05-.34-.02-.49-.07-.15-.67-1.6-.92-2.19-.24-.58-.49-.5-.67-.51l-.57-.01c-.19 0-.5.07-.76.34-.27.27-1.04 1.02-1.04 2.48 0 1.45 1.06 2.86 1.2 3.06.15.2 2.07 3.2 5.02 4.49 2.95 1.3 2.95.87 3.48.81.53-.06 1.76-.72 2.01-1.41.25-.69.25-1.29.18-1.41-.08-.12-.27-.18-.57-.33z"/>
                                 </svg>
+                                <p class="text-center">WhatsApp</p>
                             </a>
-                            <p class="text-center">WhatsApp</p>
                         </div>
-                        <div class="col-sm-6 text-center">
-                            <a href="https://instagram.com/ridermc" target="_blank" aria-label="Ir a Instagram" class="social-link">
-                                <!-- Instagram SVG -->
+                        <div class="col-6 col-sm-6 text-center">
+                            <a href="https://instagram.com/ridermc" target="_blank" aria-label="Ir a Instagram" class="social-link instagram-link">
                                 <svg class="icon svg-icon" viewBox="0 0 24 24" width="56" height="56" aria-hidden="true">
                                     <path fill="currentColor" d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H7zm5 3.5a4.5 4.5 0 110 9 4.5 4.5 0 010-9zm0 2a2.5 2.5 0 100 5 2.5 2.5 0 000-5zM18.5 6a1 1 0 110 2 1 1 0 010-2z"/>
                                 </svg>
+                                <p class="text-center">Instagram</p>
                             </a>
-                            <p class="text-center">Instagram</p>
                         </div>
                     </div>
                 </div>
             </article>
         </section>
+        
         <section id="PortFolio" class="animated-background">
             <div id="particles-js-port-folio"></div>
             <h2>Proyectos Realizados</h2>
-            <!-- SportRyder (moved to top) -->
+            
             <div class="proyecto-card">
-                <img loading="lazy" src="img/Captura de pantalla 2025-10-06 132508.png" alt="Captura SportRyder - E-commerce Lencería" class="imagen-proyecto-card">
+                <img loading="lazy" src="img/Captura de pantalla 2025-10-06 132508.png" alt="Captura SportRyder - E-commerce Lencería" class="imagen-proyecto-card modal-trigger" data-toggle="modal" data-target="#proyectoModal" data-img-src="img/Captura de pantalla 2025-10-06 132508.png">
                 <div class="proyecto-info">
                     <h3 class="proyecto-titulo">SportRyder</h3>
                     <p class="proyecto-descripcion">
@@ -141,7 +141,7 @@
                 </div>
             </div>
             <div class="proyecto-card">
-                <img loading="lazy" src="img/img_2023.jpeg" alt="Captura de pantalla de Gestión de Instituto" class="imagen-proyecto-card">
+                <img loading="lazy" src="img/img_2023.jpeg" alt="Captura de pantalla de Gestión de Instituto" class="imagen-proyecto-card modal-trigger" data-toggle="modal" data-target="#proyectoModal" data-img-src="img/img_2023.jpeg">
                 <div class="proyecto-info">
                     <h3 class="proyecto-titulo">SIMEF - Sistema de Gestión de Instituto</h3>
                     <p class="proyecto-descripcion">
@@ -152,7 +152,7 @@
                 </div>
             </div>
             <div class="proyecto-card">
-                <img loading="lazy" src="img/inicio_hilos.png" alt="Captura de pantalla de La Casa de Hilos y Repuestos" class="proyecto-imagen">
+                <img loading="lazy" src="img/inicio_hilos.png" alt="Captura de pantalla de La Casa de Hilos y Repuestos" class="proyecto-imagen modal-trigger" data-toggle="modal" data-target="#proyectoModal" data-img-src="img/inicio_hilos.png">
                 <div class="proyecto-info">
                     <h3 class="proyecto-titulo">La Casa de Hilos y Repuestos</h3>
                     <p class="proyecto-descripcion">
@@ -163,7 +163,7 @@
                 </div>
             </div>
             <div class="proyecto-card">
-                <img loading="lazy" src="img/tienda_ropa.png" alt="Captura de pantalla de Tienda de Ropa" class="proyecto-imagen">
+                <img loading="lazy" src="img/tienda_ropa.png" alt="Captura de pantalla de Tienda de Ropa" class="proyecto-imagen modal-trigger" data-toggle="modal" data-target="#proyectoModal" data-img-src="img/tienda_ropa.png">
                 <div class="proyecto-info">
                     <h3 class="proyecto-titulo">Tienda de Ropa</h3>
                     <p class="proyecto-descripcion">
@@ -172,13 +172,12 @@
                         Tecnologías: Python 3, Django, Bootstrap, HTML, CSS, JavaScript, SQLite.
                         Rol: Desarrollador Individual.
                         Características principales: Gestión de productos, carrito de compras, gestión de pedidos, búsqueda de productos, diseño responsive.
-                        Instalación: Clonación del repositorio (Git), creación de entorno virtual (Python venv), instalación de dependencias (pip), migración de la base de datos (Django migrate), ejecución del servidor local (Django runserver).
                         Enlace al repositorio con detalles: <a href="https://github.com/ridermanriquecueto/fashion-store.git" target="_blank">GitHub</a>
                     </p>
                 </div>
             </div>
             <div class="proyecto-card">
-                <img loading="lazy" src="img/cpt.jpeg" alt="Captura de pantalla de crud_python_sqlite3" class="imagen-proyecto-card">
+                <img loading="lazy" src="img/cpt.jpeg" alt="Captura de pantalla de crud_python_sqlite3" class="imagen-proyecto-card modal-trigger" data-toggle="modal" data-target="#proyectoModal" data-img-src="img/cpt.jpeg">
                 <div class="proyecto-info">
                     <h3 class="proyecto-titulo">crud_python_sqlite3</h3>
                     <p class="proyecto-descripcion">
@@ -188,8 +187,36 @@
             </div>
             
         </section>
+        
         <section id="Educacion" class="animated-background">
-            <div id="particles-js-educacion"></div>
+            <div id="logos-fondo-container">
+                <div class="logos-fondo-animado">
+                    <img src="img/htt.png" alt="HTML Logo">
+                    <img src="img/cs.png" alt="CSS Logo">
+                    <img src="img/js.png" alt="JavaScript Logo">
+                    <img src="img/boostrap.jfif" alt="Bootstrap Logo">
+                    <img src="img/gitt.png" alt="Git Logo">
+                    <img src="img/vsualC.png" alt="VisualCode">
+                    <img src="img/tk.png" alt="tk">
+                    <img src="img/py.png" alt="py">
+                    <img src="img/node.png" alt="node">
+                    <img src="img/react.png" alt="react">
+                    <img src="img/gitt.png" alt="db">
+                    <img src="img/go.jpg" alt="go">
+                    <img src="img/htt.png" alt="HTML Logo">
+                    <img src="img/cs.png" alt="CSS Logo">
+                    <img src="img/js.png" alt="JavaScript Logo">
+                    <img src="img/boostrap.jfif" alt="Bootstrap Logo">
+                    <img src="img/gitt.png" alt="Git Logo">
+                    <img src="img/vsualC.png" alt="VisualCode">
+                    <img src="img/tk.png" alt="tk">
+                    <img src="img/py.png" alt="py">
+                    <img src="img/node.png" alt="node">
+                    <img src="img/react.png" alt="react">
+                    <img src="img/gitt.png" alt="db">
+                    <img src="img/go.jpg" alt="go">
+                </div>
+            </div>
             <div class="contenido-container">
                 <div class="contenido-grid">
                     <div class="educacion-panel" aria-labelledby="educacion-title">
@@ -226,7 +253,7 @@
                         <div class="skill">
                             <div class="skill-header"><strong>Frontend</strong><span class="skill-percent">90%</span></div>
                             <div class="skill-bar" data-percent="90">
-                                    <div class="skill-fill"></div>
+                                            <div class="skill-fill"></div>
                                 </div>
                             <div class="skill-list muted">HTML • CSS • JavaScript • React • Bootstrap</div>
                         </div>
@@ -234,7 +261,7 @@
                         <div class="skill">
                             <div class="skill-header"><strong>Backend</strong><span class="skill-percent">85%</span></div>
                             <div class="skill-bar" data-percent="85">
-                                    <div class="skill-fill"></div>
+                                            <div class="skill-fill"></div>
                                 </div>
                             <div class="skill-list muted">Python (Django) • Java • Spring Boot • Micronaut • Microservicios</div>
                         </div>
@@ -242,7 +269,7 @@
                         <div class="skill">
                             <div class="skill-header"><strong>Bases de Datos</strong><span class="skill-percent">80%</span></div>
                             <div class="skill-bar" data-percent="80">
-                                    <div class="skill-fill"></div>
+                                            <div class="skill-fill"></div>
                                 </div>
                             <div class="skill-list muted">PostgreSQL • MySQL • SQLite3</div>
                         </div>
@@ -250,29 +277,16 @@
                         <div class="skill">
                             <div class="skill-header"><strong>Herramientas</strong><span class="skill-percent">85%</span></div>
                             <div class="skill-bar" data-percent="85">
-                                    <div class="skill-fill"></div>
+                                            <div class="skill-fill"></div>
                                 </div>
                             <div class="skill-list muted">Git • VSCode • IntelliJ • Docker • Postman • Figma</div>
                         </div>
                     </aside>
                 </div>
             </div>
-            <div class="logos-fondo-animado">
-                <img src="img/htt.png" alt="HTML Logo">
-                <img src="img/cs.png" alt="CSS Logo">
-                <img src="img/js.png" alt="JavaScript Logo">
-                <img src="img/boostrap.jfif" alt="Bootstrap Logo">
-                <img src="img/gitt.png" alt="Git Logo">
-                <img src="img/vsualC.png" alt="VisualCode">
-                <img src="img/tk.png" alt="tk">
-                <img src="img/py.png" alt="py">
-                <img src="img/node.png" alt="node">
-                <img src="img/react.png" alt="react">
-                <img src="img/gitt.png" alt="db">
-                <img src="img/go.jpg" alt="go">
-            </div>
         </section>
     </main>
+    
     <footer>
         <div class="footer-column">
             <h3>Enlaces Importantes</h3>
@@ -299,12 +313,35 @@
             </ul>
         </div>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <div class="modal fade" id="proyectoModal" tabindex="-1" role="dialog" aria-labelledby="proyectoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+            <div class="modal-content" style="background: transparent; border: none;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar" style="color: white; opacity: 1; font-size: 2rem; position: absolute; top: -20px; right: 0; z-index: 1051;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="modal-body p-0">
+                    <img id="modalImage" src="" alt="Captura de Proyecto en Zoom" class="img-fluid rounded" style="max-height: 90vh; width: auto; display: block; margin: 0 auto; object-fit: contain;">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/main.js"></script> 
     <script src="js/particles.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/app.js"></script> 
+    <script>
+        // Lógica del modal de Bootstrap
+        $('#proyectoModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            var imageSrc = button.data('img-src');
+            var modal = $(this);
+            modal.find('#modalImage').attr('src', imageSrc);
+        })
+    </script>
 </body>
 
 </html>
