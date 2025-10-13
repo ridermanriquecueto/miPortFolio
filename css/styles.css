@@ -516,3 +516,11 @@ footer{
 /* Pequeños ajustes visuales */
 a{color:inherit}
 
+/* === Ajuste para que el header no tape las secciones === */
+html {
+  scroll-behavior: smooth; /* desplazamiento suave */
+}
+
+section {
+  scroll-margin-top: 80px; /* ajustá este valor al alto de tu header */
+}
