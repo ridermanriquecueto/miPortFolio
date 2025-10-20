@@ -208,8 +208,8 @@ section.animated-background{
 .contactame button{background:linear-gradient(90deg,var(--accent),var(--primary));border:none;color:#071229;padding:.7rem 1.1rem;border-radius:12px;cursor:pointer;box-shadow:0 16px 40px rgba(46,230,199,0.15);font-weight:600}
 
 .redes-sociales p{color:var(--muted);margin:0 0 .6rem 0}
-.redes-sociales .row { margin-left: -5px; margin-right: -5px; } 
-.redes-sociales .col-6, .redes-sociales .col-sm-4, .redes-sociales .col-sm-6 { padding-left: 5px; padding-right: 5px; margin-bottom: 1rem; }
+.redes-sociales .row { margin-left: -6px; margin-right: -6px; display:flex; flex-wrap:wrap; }
+.redes-sociales .col-6, .redes-sociales .col-sm-4, .redes-sociales .col-sm-6 { padding-left: 6px; padding-right: 6px; margin-bottom: 1rem; display:flex; justify-content:center }
 
 /* Iconos de redes sociales: DINÁMICOS Y VISUALES */
 .redes-sociales .icon{display:block;margin:0 auto .4rem auto;height:56px;width:auto;border-radius:8px;box-shadow:var(--shadow-1);padding:.3rem;background:var(--glass)}
@@ -246,14 +246,15 @@ section.animated-background{
 }
 .proyecto-card img{
     width:100%;
-    max-width:360px;
-    height:220px;
-    object-fit:cover;
+    max-width:420px; /* permitir imágenes un poco más grandes */
+    max-height:260px; /* limitar altura para evitar estiramiento vertical */
+    height:auto; /* dejar que la imagen mantenga su ratio */
+    object-fit:contain; /* mostrar la imagen completa sin recorte */
     border-radius:10px;
     display:block;
     margin:0 auto;
     cursor: pointer;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.25s ease;
 }
 .proyecto-card img:hover {
     opacity: 0.9;
@@ -269,13 +270,14 @@ section.animated-background{
 
 .logo-fondo-global {
     position: absolute; 
-    height: 40px; 
-    width: 40px;
+    height: 48px; 
+    width: 48px;
     /* La opacidad base será manejada por JS para variaciones */
-    border-radius: 5px;
-    padding: 3px;
+    border-radius: 6px;
+    padding: 4px;
     filter: grayscale(100%);
     pointer-events: none; 
+    will-change: transform, opacity; /* mejor rendimiento en animaciones */
     /* Ambas animaciones se aplican en JS con duraciones y delays aleatorios */
 }
 
@@ -312,6 +314,70 @@ section.animated-background{
     }
 }
 
+/* 3. Movimiento horizontal a través de la pantalla (de izquierda a derecha, cubre ancho viewport) */
+@keyframes horizontal-float {
+    0% {
+        transform: translateX(-10vw) translateY(0) rotate(0deg);
+        opacity: 0.85;
+    }
+    50% {
+        transform: translateX(50vw) translateY(4vh) rotate(180deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(110vw) translateY(0) rotate(360deg);
+        opacity: 0.85;
+    }
+}
+
+/* 4. Movimiento orbital/curvo: describe un pequeño circuito para dar sensación de órbita */
+@keyframes orbit-float {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0.9;
+    }
+    25% {
+        transform: translate(6vw, -6vh) rotate(90deg);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(0, -12vh) rotate(180deg);
+        opacity: 1;
+    }
+    75% {
+        transform: translate(-6vw, -6vh) rotate(270deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+        opacity: 0.9;
+    }
+}
+
+/* 5. Movimiento vertical que cubre la pantalla (sube y baja) */
+@keyframes vertical-float {
+    0% {
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 0.85;
+    }
+    50% {
+        transform: translateY(40vh) rotate(180deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0.85;
+    }
+}
+
+/* Valores por defecto/seguridad para las animaciones aplicadas a los logos en caso de que JS no establezca todas las propiedades */
+.logo-fondo-global {
+    /* si JS no define duration/delay/timing, usamos estos valores seguros */
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+}
+
 /* ======================================= */
 /* ESTILOS DEL CARRUSEL EN SECCIÓN EDUCACIÓN (HORIZONTAL) */
 /* ======================================= */
@@ -320,11 +386,12 @@ section.animated-background{
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh; /* asegurar ocupa toda la pantalla */
     overflow: hidden;
     z-index: 0; 
-    opacity: 0.15; 
+    opacity: 0.12; 
+    pointer-events: none;
 }
 
 .logos-fondo-animado {
@@ -332,17 +399,21 @@ section.animated-background{
     flex-wrap: nowrap;
     position: absolute;
     white-space: nowrap; 
-    animation: scroll-h 30s linear infinite;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: scroll-h 36s linear infinite;
 }
 
 .logos-fondo-animado img {
-    height: 60px; 
-    min-width: 60px;
+    height: 64px; 
+    min-width: 64px;
     opacity: 0.95;
     border-radius: 8px;
     padding: .35rem;
-    margin: 0 10px; 
-    transition: transform 0.5s ease;
+    margin: 0 12px; 
+    transition: transform 0.5s ease, opacity 0.35s ease;
+    object-fit: contain;
 }
 
 /* Animación de desplazamiento horizontal */

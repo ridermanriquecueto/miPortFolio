@@ -49,7 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
             'img/go.jpg', 'img/node.png', 'img/vsualC.png', 'img/docker.png'
         ];
 
-        const logosToInject = logoSources.concat(logoSources, logoSources, logoSources); 
+    // inyectar varias copias para cubrir toda la pantalla
+    const logosToInject = [].concat(...Array.from({length:6}, () => logoSources)); 
 
         logosToInject.forEach((src, index) => {
             const logo = document.createElement('img');
@@ -64,28 +65,28 @@ document.addEventListener('DOMContentLoaded', () => {
             logo.style.top = `${initialY}vh`;
             
             // 2. TAMAÑO Y OPACIDAD BASE SUTILMENTE DIFERENTE
-            const size = 30 + Math.random() * 20; 
+            const size = 36 + Math.random() * 44; // 36px a ~80px
             logo.style.width = `${size}px`;
             logo.style.height = `${size}px`;
             
-            // 3. COMBINAR ANIMACIONES ALEATORIAS
-            
-            // Parámetros para el MOVIMIENTO (diagonal-float)
-            const moveDuration = 10 + Math.random() * 15; // 10s a 25s
-            const moveDirection = (Math.random() < 0.5) ? 'normal' : 'alternate';
-            const moveDelay = Math.random() * 10; 
+                // 3. COMBINAR ANIMACIONES ALEATORIAS
 
-            // Parámetros para el PARPADEO (logo-glow-pulse)
-            const pulseDuration = 3 + Math.random() * 5; // 3s a 8s (más rápido)
-            const pulseDelay = Math.random() * 5; 
-            
-            // Aplicar las dos animaciones separadas en la misma propiedad 'animation'
-            logo.style.animation = 
-                `diagonal-float ${moveDuration}s linear infinite ${moveDirection}, ` + 
-                `logo-glow-pulse ${pulseDuration}s ease-in-out infinite alternate`;
-            
-            // Aplicar los retrasos
-            logo.style.animationDelay = `-${moveDelay}s, -${pulseDelay}s`;
+                // Elegir tipo de animación de movimiento aleatoriamente
+                const moveAnimations = ['diagonal-float', 'horizontal-float', 'vertical-float', 'orbit-float'];
+                const chosenMove = moveAnimations[Math.floor(Math.random() * moveAnimations.length)];
+
+                // Parámetros para el MOVIMIENTO
+                const moveDuration = 8 + Math.random() * 20; // 8s a 28s
+                const moveDirection = (Math.random() < 0.5) ? 'normal' : 'alternate';
+                const moveDelay = Math.random() * 10;
+
+                // Parámetros para el PARPADEO (logo-glow-pulse)
+                const pulseDuration = 3 + Math.random() * 5; // 3s a 8s
+                const pulseDelay = Math.random() * 5;
+
+                // Aplicar las animaciones: movimiento elegido + efecto glow
+                logo.style.animation = `${chosenMove} ${moveDuration}s linear infinite ${moveDirection}, logo-glow-pulse ${pulseDuration}s ease-in-out infinite alternate`;
+                logo.style.animationDelay = `-${moveDelay}s, -${pulseDelay}s`;
             
 
             globalContainer.appendChild(logo);

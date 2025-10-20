@@ -45,3 +45,26 @@ Para cambiar la paleta, edita `css/styles.css` y modifica las variables en `:roo
 
 Si quieres que actualice el `mailto:` en `index.html` con tu email real, dime la dirección y lo hago.
 
+## Migración a React (estado actual)
+
+He añadido un scaffold mínimo usando Vite + React para facilitar la migración progresiva del portafolio.
+
+- Archivo original completo preservado como `index.static.html`.
+- Punto de entrada React: `index.html` (monta `src/main.jsx`).
+- Componente inicial: `src/App.jsx` que inyecta `index.static.html` y carga los scripts existentes (`/js/particles.js`, `/js/main.js`, `/js/app.js`).
+
+Instrucciones rápidas (Windows - PowerShell):
+
+```powershell
+npm install
+npm run dev
+```
+
+Abrir http://localhost:5173 para ver la app en desarrollo.
+
+Siguientes pasos recomendados:
+- Migrar la sección `AcercaDeMi` a un componente React y extraer su HTML a `src/components/AcercaDeMi.jsx`.
+- Repetir para otras secciones (PortFolio, Contacto, Educacion).
+- Reemplazar gradualmente las llamadas a scripts globales por hooks/componentes React.
+
+
