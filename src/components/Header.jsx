@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import logoImg from '../../img/logo.png'
 
 export default function Header(){
   const [open, setOpen] = useState(false)
@@ -6,7 +7,7 @@ export default function Header(){
   return (
     <header>
       <a href="#AcercaDeMi" aria-label="Ir a la sección de AcercaDeMi">
-        <img src="/img/logo.png" alt="RyderMan" className="logo" />
+        <img src={logoImg} alt="RyderMan" className="logo" />
       </a>
 
       <nav aria-label="Menú principal">

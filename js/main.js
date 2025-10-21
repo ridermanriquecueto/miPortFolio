@@ -44,9 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (globalContainer) {
         const logoSources = [
-            'img/htt.png', 'img/cs.png', 'img/js.png', 'img/boostrap.jfif', 
-            'img/gitt.png', 'img/py.png', 'img/react.png', 'img/java.png',
-            'img/go.jpg', 'img/node.png', 'img/vsualC.png', 'img/docker.png'
+            '/img/htt.png', '/img/cs.png', '/img/js.png', '/img/boostrap.jfif', 
+            '/img/gitt.png', '/img/py.png', '/img/react.png', '/img/db.png',
+            '/img/go.jpg', '/img/node.png', '/img/vsualC.png', '/img/github.png'
         ];
 
     // inyectar varias copias para cubrir toda la pantalla

@@ -269,16 +269,16 @@ section.animated-background{
 /* ======================================= */
 
 .logo-fondo-global {
-    position: absolute; 
-    height: 48px; 
+    position: absolute;
+    height: 48px;
     width: 48px;
-    /* La opacidad base será manejada por JS para variaciones */
     border-radius: 6px;
     padding: 4px;
-    filter: grayscale(100%);
-    pointer-events: none; 
-    will-change: transform, opacity; /* mejor rendimiento en animaciones */
-    /* Ambas animaciones se aplican en JS con duraciones y delays aleatorios */
+    /* Permitimos color y brillo desde JS: desactivamos el grayscale por defecto */
+    filter: grayscale(0) saturate(140%);
+    mix-blend-mode: screen; /* ayuda a mezclar colores con el fondo oscuro */
+    pointer-events: none;
+    will-change: transform, opacity, filter; /* mejor rendimiento en animaciones */
 }
 
 /* 1. Animación de movimiento H y V */
@@ -370,6 +370,24 @@ section.animated-background{
     }
 }
 
+/* 6. Zig-zag rápido: movimientos angulares en diagonal alternada */
+@keyframes zigzag-float {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(18vw, -10vh) rotate(30deg); }
+    50% { transform: translate(-8vw, 20vh) rotate(120deg); }
+    75% { transform: translate(22vw, -6vh) rotate(210deg); }
+    100% { transform: translate(-6vw, 18vh) rotate(360deg); }
+}
+
+/* 7. Espiral/curva lenta para dar movimiento orgánico */
+@keyframes spiral-float {
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 0.9 }
+    25% { transform: translate(8vw, -8vh) scale(1.05) rotate(80deg); opacity: 1 }
+    50% { transform: translate(-10vw, 14vh) scale(0.98) rotate(180deg); opacity: 1 }
+    75% { transform: translate(12vw, -6vh) scale(1.02) rotate(260deg); opacity: 1 }
+    100% { transform: translate(0, 0) scale(1) rotate(360deg); opacity: 0.9 }
+}
+
 /* Valores por defecto/seguridad para las animaciones aplicadas a los logos en caso de que JS no establezca todas las propiedades */
 .logo-fondo-global {
     /* si JS no define duration/delay/timing, usamos estos valores seguros */
@@ -398,11 +416,13 @@ section.animated-background{
     display: flex;
     flex-wrap: nowrap;
     position: absolute;
-    white-space: nowrap; 
+    white-space: nowrap;
     left: 0;
     top: 50%;
     transform: translateY(-50%);
     animation: scroll-h 36s linear infinite;
+    /* Hacemos muy sutil este carrusel para que no compita con los logos flotantes globales */
+    opacity: 0.06;
 }
 
 .logos-fondo-animado img {
@@ -450,7 +470,17 @@ section.animated-background{
 .skill-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.45rem}
 .skill-percent{color:var(--muted);font-size:.95rem}
 .skill-bar{background:rgba(255,255,255,0.03);height:12px;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.03)}
-.skill-fill{height:100%;background:linear-gradient(90deg,var(--primary),var(--accent));border-radius:12px;box-shadow:0 6px 18px rgba(46,230,199,0.08);width:0%;transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+.skill-fill{height:100%;background:linear-gradient(90deg,var(--primary),var(--accent));border-radius:12px;box-shadow:0 6px 18px rgba(46,230,199,0.08);width:0%;transition:width 0.95s cubic-bezier(.2,.8,.2,1); will-change: width, transform}
+
+.skill-percent{transition: color 0.35s ease, transform 0.35s ease}
+.skill-percent.animate { transform: translateY(-2px); color: #fff }
+
+/* Efecto glow/scale cuando la barra se llena */
+.skill-fill.filling{
+    box-shadow: 0 8px 30px rgba(46,230,199,0.18), 0 0 30px rgba(255,180,153,0.06);
+    transform-origin: left center;
+    transform: scaleY(1.02);
+}
 
 /* Animación al entrar en viewport */
 .skill-fill.animate{transition:width 1.2s cubic-bezier(.2,.8,.2,1);}
