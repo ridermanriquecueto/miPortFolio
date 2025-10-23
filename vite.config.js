@@ -3,9 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  // Base path para servir desde GitHub Pages: reemplazar por el nombre del repo
-  base: '/miPortFolio/',
-  root: '.',
+  base: '/',   // <<--- esto es importante para Vercel
   server: {
     port: 5173
   }
