@@ -35,10 +35,12 @@ export default function App(){
 
       <main>
         <AcercaDeMi />
-        <Curriculum />
-        <Contacto />
         <Portafolio />
         <Educacion />
+        <Curriculum />
+        <Contacto />
+        
+        
       </main>
 
       <Footer />

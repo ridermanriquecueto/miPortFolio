@@ -25,10 +25,12 @@ export default function Header(){
 
         <ul id="menu" className={open ? 'open' : ''}>
           <li className="menu-item"><a href="#AcercaDeMi" className="active">Acerca de mí</a></li>
-          <li className="menu-item"><a href="#contacto" className="active">Contacto</a></li>
-          <li className="menu-item"><a href="#Curriculum" id="curriculum-link" className="active">Currículum</a></li>
           <li className="menu-item"><a href="#PortFolio" className="active">Portafolio</a></li>
           <li className="menu-item"><a href="#Educacion" className="active">Educación</a></li>
+          <li className="menu-item"><a href="#Curriculum" id="curriculum-link" className="active">Currículum</a></li>
+          <li className="menu-item"><a href="#contacto" className="active">Contacto</a></li>
+          
+          
         </ul>
       </nav>
     </header>
