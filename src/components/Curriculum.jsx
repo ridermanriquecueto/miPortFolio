@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Curriculum(){
+export default function Curriculum() {
   return (
     <section id="Curriculum" className="animated-background">
       <div id="particles-js-curriculum"></div>
