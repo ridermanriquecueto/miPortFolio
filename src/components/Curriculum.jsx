@@ -7,7 +7,8 @@ export default function Curriculum() {
       <article className="curriculum">
         <h2>¿Quieres descargar mi currículum? Haz clic abajo</h2>
         <a
-          href="https://acrobat.adobe.com/id/urn:aaid:sc:VA6C2:57d06724-cf70-4929-82a6-30d83c1e4e11"
+          href="https://drive.google.com/file/d/1G3cHl5q-CUrN15-7hhkkztvCs85AFfOs/view?usp=drive_link"
+          
           aria-label="Descargar currículum"
           target="_blank"
           className="btn"
