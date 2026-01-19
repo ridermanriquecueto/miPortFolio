@@ -1,70 +1,24 @@
-Portafolio de Rider Manrique
-¡Hola! Soy Renato Manrique, un apasionado desarrollador frontend con una fascinación por la tecnología y el diseño. Mi portafolio es una muestra de mi dedicación a la excelencia y mi constante búsqueda de conocimiento en el campo del desarrollo web.
+# Rider Manrique | Analista de Sistemas & Fullstack Developer 🚀
 
-Tecnologías Utilizadas
-Mi portafolio está construido utilizando las siguientes tecnologías:
+Bienvenido a mi portafolio profesional. Aquí presento mi trayectoria, formación académica y proyectos enfocados en el desarrollo de soluciones de software robustas, escalables y seguras.
 
-HTML5 y CSS3: La estructura y el diseño de mi portafolio están creados con HTML5 y CSS3, lo que me permite crear una experiencia visual y funcional excepcional para los usuarios.
+## 👨‍💻 Perfil Profesional
+Soy Analista de Sistemas con una sólida base técnica en el desarrollo Backend (**Java/Spring Boot** y **Python/Flask**). Mi enfoque combina el rigor del análisis de requerimientos con la implementación de interfaces modernas y dinámicas utilizando **React**.
 
-Bootstrap: He utilizado Bootstrap para hacer que mi portafolio sea completamente responsive y para aprovechar sus componentes y estilos predefinidos.
+## 🛠️ Tecnologías Utilizadas en este Portafolio
+Este portafolio es una Single Page Application (SPA) moderna:
+- **Core:** React 18 + Vite (Migrado de HTML estático para mayor escalabilidad).
+- **Estilos:** CSS3 con variables globales (Paleta Neo-Mint & Midnight) y Bootstrap para el diseño responsivo.
+- **Interactividad:** Particles.js para efectos visuales y componentes de React para la gestión de proyectos.
+- **Deploy:** Vercel / GitHub Pages.
 
-JavaScript y jQuery: Para la interactividad y la funcionalidad dinámica de mi portafolio, he utilizado JavaScript y jQuery.
+## 📂 Estructura del Proyecto
+El proyecto ha sido migrado de una estructura estática a componentes de React:
+- `/src/components`: Contiene secciones modulares (Portafolio, Educación, Skills).
+- `/src/img`: Activos visuales y capturas de los sistemas desarrollados.
+- `/public`: Scripts de soporte para efectos visuales.
 
-Particles.js: He integrado la librería Particles.js para crear un efecto visual atractivo en mi portafolio.
-
-Git y GitHub: He utilizado Git y GitHub para el control de versiones y para alojar mi código.
-
-Instrucciones para Clonar y Ver mi Portafolio
-Si deseas ver mi portafolio en acción o clonarlo para tu propio uso, sigue estos pasos:
-
-Clonar el Repositorio: Abre tu terminal y ejecuta el siguiente comando para clonar mi repositorio:
-https://ridermanriquecueto.github.io/miPortFolio/
-
-bash
-Copy code
-git clone https://github.com/ridermanriquecueto/ridermanriquecueto.github.io.git
-Abrir el Portafolio: Una vez que hayas clonado el repositorio, abre el archivo index.html en tu navegador web para ver mi portafolio.
-
-Explorar el Código: Si deseas explorar el código fuente de mi portafolio, puedes abrir los archivos HTML, CSS y JavaScript en tu editor de código favorito.
-
-Personalizar y Utilizar: Siéntete libre de personalizar mi portafolio según tus necesidades o utilizarlo como inspiración para tus propios proyectos.
-
----
-
-## Notas de estilo y paleta (añadido)
-
-Este proyecto ahora usa una paleta "Neo-Mint + Midnight" y variables CSS para facilitar cambios globales de estilo.
-
-- Las variables están en `css/styles.css` dentro de `:root`.
-- Colores principales:
-	- `--bg`: #071229 — fondo
-	- `--primary`: #2ee6c7 — acento neo-mint
-	- `--accent`: #ffb399 — acento durazno
-
-Para cambiar la paleta, edita `css/styles.css` y modifica las variables en `:root`. También puedes añadir un toggle para modo claro/oscuro si lo deseas.
-
-Si quieres que actualice el `mailto:` en `index.html` con tu email real, dime la dirección y lo hago.
-
-## Migración a React (estado actual)
-
-He añadido un scaffold mínimo usando Vite + React para facilitar la migración progresiva del portafolio.
-
-- Archivo original completo preservado como `index.static.html`.
-- Punto de entrada React: `index.html` (monta `src/main.jsx`).
-- Componente inicial: `src/App.jsx` que inyecta `index.static.html` y carga los scripts existentes (`/js/particles.js`, `/js/main.js`, `/js/app.js`).
-
-Instrucciones rápidas (Windows - PowerShell):
-
-```powershell
-npm install
-npm run dev
-```
-
-Abrir http://localhost:5173 para ver la app en desarrollo.
-
-Siguientes pasos recomendados:
-- Migrar la sección `AcercaDeMi` a un componente React y extraer su HTML a `src/components/AcercaDeMi.jsx`.
-- Repetir para otras secciones (PortFolio, Contacto, Educacion).
-- Reemplazar gradualmente las llamadas a scripts globales por hooks/componentes React.
-
-
+## 🚀 Cómo ejecutarlo localmente
+1. Clonar el repositorio:
+   ```powershell
+   git clone [https://github.com/ridermanriquecueto/miPortFolio.git](https://github.com/ridermanriquecueto/miPortFolio.git)

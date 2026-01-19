@@ -5,9 +5,17 @@ import capCatalogo from '../../img/captura-catalogo.png'
 import capEstacionamiento from '../../img/captura_estacionamiento.png'
 import img2023 from '../../img/img_2023.jpeg'
 import inicioHilos from '../../img/inicio_hilos.png'
+import capStock from '../../img/shopping-ropa.png'
 
 export default function Portafolio(){
   const projects = [
+    {
+      imgSrc: capStock, // Aquí usamos la nueva imagen
+      title: "Sistema de Gestión de Stock & Auditoría",
+      description: "Sistema productivo para administración de inventarios con panel de control. Incluye lógica de seguridad avanzada y seguimiento de movimientos.",
+      technologies: "Python (Flask) · SQLite · Bootstrap · Seguridad: Monitoreo de IP y Logs de Auditoría. Rol: Analista Backend.",
+      repoLink: "https://github.com/ridermanriquecueto/shopping-ropa.git"
+    },
     {
       imgSrc: cap1,
       title: "SportRyder",
