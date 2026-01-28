@@ -14,7 +14,8 @@ export default function Portafolio(){
       title: "Sistema de Gestión de Stock & Auditoría",
       description: "Sistema productivo para administración de inventarios con panel de control. Incluye lógica de seguridad avanzada y seguimiento de movimientos.",
       technologies: "Python (Flask) · SQLite · Bootstrap · Seguridad: Monitoreo de IP y Logs de Auditoría. Rol: Analista Backend.",
-      repoLink: "https://github.com/ridermanriquecueto/shopping-ropa.git"
+      repoLink: "https://github.com/ridermanriquecueto/shopping-ropa.git",
+      liveLink: "https://tinyurl.com/indumentaria-popys"
     },
     {
       imgSrc: cap1,
@@ -59,7 +60,7 @@ export default function Portafolio(){
       <h2>Proyectos Realizados</h2>
 
       {projects.map((p, i) => (
-        <ProjectCard key={i} imgSrc={p.imgSrc} title={p.title} description={p.description} technologies={p.technologies} repoLink={p.repoLink} />
+        <ProjectCard key={i} imgSrc={p.imgSrc} title={p.title} description={p.description} technologies={p.technologies} repoLink={p.repoLink}liveLink={p.liveLink} />
       ))}
     </section>
   )

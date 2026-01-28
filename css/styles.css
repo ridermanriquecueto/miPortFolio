@@ -625,3 +625,12 @@ html {
 section {
   scroll-margin-top: 80px; /* ajustá este valor al alto de tu header */
 }
+
+.proyecto-links {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  
+  flex-wrap: wrap;
+}
+
