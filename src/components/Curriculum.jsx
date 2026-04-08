@@ -7,7 +7,8 @@ export default function Curriculum() {
       <article className="curriculum">
         <h2>¿Quieres descargar mi currículum? Haz clic abajo</h2>
         <a
-          href="https://drive.google.com/file/d/1G3cHl5q-CUrN15-7hhkkztvCs85AFfOs/view?usp=drive_link"
+          href="https://drive.google.com/file/d/1MOBdBj3GtJoMSWIydg1MR8X8Z_yyuDJQ/view?usp=drive_link"
+          
           
           aria-label="Descargar currículum"
           target="_blank"

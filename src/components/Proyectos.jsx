@@ -1,5 +1,11 @@
 import React from 'react'
 import ProjectCard from './ProjectCard'
+
+// Importaciones corregidas (Asegurate que los archivos estén en src/img)
+import capMundoInicio from '../../img/LIM_1.png' 
+import capMundoAdmin from '../../img/ADMIN_5.png'
+
+// Tus otros imports que ya funcionaban
 import cap1 from '../../img/Captura de pantalla 2025-10-06 132508.png'
 import capCatalogo from '../../img/captura-catalogo.png'
 import capEstacionamiento from '../../img/captura_estacionamiento.png'
@@ -9,6 +15,14 @@ import capStock from '../../img/shopping-ropa.png'
 
 export default function Portafolio(){
   const projects = [
+    {
+      imgSrc: capMundoInicio, 
+      title: "Mundo Limpieza 526 – E-commerce Engine & Dashboard",
+      description: "Solución integral para distribuidora. Incluye catálogo dinámico, gestión de stock en tiempo real y un panel de administración avanzado para pedidos y auditoría.",
+      technologies: "Python (Django) · PostgreSQL/SQLite · Bootstrap 5 · JavaScript (WhatsApp API). Rol: Backend Developer & Analista.",
+      repoLink: "https://github.com/ridermanriquecueto/tienda-limpieza.git",
+      liveLink: "https://mundolimpieza526.pythonanywhere.com/" 
+    },
     {
       imgSrc: capStock, // Aquí usamos la nueva imagen
       title: "Sistema de Gestión de Stock & Auditoría",
@@ -57,7 +71,7 @@ export default function Portafolio(){
   return (
     <section id="PortFolio" className="animated-background">
       <div id="particles-js-port-folio"></div>
-      <h2>Proyectos Realizados</h2>
+      <h2>Proyectos </h2>
 
       {projects.map((p, i) => (
         <ProjectCard key={i} imgSrc={p.imgSrc} title={p.title} description={p.description} technologies={p.technologies} repoLink={p.repoLink}liveLink={p.liveLink} />

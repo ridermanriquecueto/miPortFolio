@@ -268,132 +268,86 @@ section.animated-background{
 /* ESTILOS DE LOGOS FLOTANTES GLOBALES (TODA LA PANTALLA) */
 /* ======================================= */
 
+
 .logo-fondo-global {
     position: absolute;
     height: 48px;
     width: 48px;
     border-radius: 6px;
     padding: 4px;
-    /* Permitimos color y brillo desde JS: desactivamos el grayscale por defecto */
-    filter: grayscale(0) saturate(140%);
-    mix-blend-mode: screen; /* ayuda a mezclar colores con el fondo oscuro */
+    /* Reducimos la opacidad al 15% y forzamos gris oscuro */
+    opacity: 0.15; 
+    filter: grayscale(100%) brightness(0.6); 
+    mix-blend-mode: screen;
     pointer-events: none;
-    will-change: transform, opacity, filter; /* mejor rendimiento en animaciones */
-}
-
-/* 1. Animación de movimiento H y V */
-@keyframes diagonal-float {
-    0% {
-        transform: translate(0, 0) rotate(0deg);
-    }
-    25% {
-        transform: translate(25vw, 15vh) rotate(90deg);
-    }
-    50% {
-        transform: translate(50vw, 0vh) rotate(180deg);
-    }
-    75% {
-        transform: translate(75vw, 25vh) rotate(270deg);
-    }
-    100% {
-        transform: translate(100vw, 5vh) rotate(360deg);
-    }
-}
-
-/* 2. Animación de parpadeo (brillo/color) */
-@keyframes logo-glow-pulse {
-    0%, 100% {
-        /* Estado más sutil: poca opacidad, gris */
-        opacity: 0.8; 
-        filter: grayscale(100%) brightness(0.5); 
-    }
-    50% {
-        /* Estado más brillante: opacidad ligeramente más alta, más color */
-        opacity: 1; 
-        filter: grayscale(0%) brightness(1.2); 
-    }
-}
-
-/* 3. Movimiento horizontal a través de la pantalla (de izquierda a derecha, cubre ancho viewport) */
-@keyframes horizontal-float {
-    0% {
-        transform: translateX(-10vw) translateY(0) rotate(0deg);
-        opacity: 0.85;
-    }
-    50% {
-        transform: translateX(50vw) translateY(4vh) rotate(180deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translateX(110vw) translateY(0) rotate(360deg);
-        opacity: 0.85;
-    }
-}
-
-/* 4. Movimiento orbital/curvo: describe un pequeño circuito para dar sensación de órbita */
-@keyframes orbit-float {
-    0% {
-        transform: translate(0, 0) rotate(0deg);
-        opacity: 0.9;
-    }
-    25% {
-        transform: translate(6vw, -6vh) rotate(90deg);
-        opacity: 1;
-    }
-    50% {
-        transform: translate(0, -12vh) rotate(180deg);
-        opacity: 1;
-    }
-    75% {
-        transform: translate(-6vw, -6vh) rotate(270deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translate(0, 0) rotate(360deg);
-        opacity: 0.9;
-    }
-}
-
-/* 5. Movimiento vertical que cubre la pantalla (sube y baja) */
-@keyframes vertical-float {
-    0% {
-        transform: translateY(-10vh) rotate(0deg);
-        opacity: 0.85;
-    }
-    50% {
-        transform: translateY(40vh) rotate(180deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-10vh) rotate(360deg);
-        opacity: 0.85;
-    }
-}
-
-/* 6. Zig-zag rápido: movimientos angulares en diagonal alternada */
-@keyframes zigzag-float {
-    0% { transform: translate(0, 0) rotate(0deg); }
-    25% { transform: translate(18vw, -10vh) rotate(30deg); }
-    50% { transform: translate(-8vw, 20vh) rotate(120deg); }
-    75% { transform: translate(22vw, -6vh) rotate(210deg); }
-    100% { transform: translate(-6vw, 18vh) rotate(360deg); }
-}
-
-/* 7. Espiral/curva lenta para dar movimiento orgánico */
-@keyframes spiral-float {
-    0% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 0.9 }
-    25% { transform: translate(8vw, -8vh) scale(1.05) rotate(80deg); opacity: 1 }
-    50% { transform: translate(-10vw, 14vh) scale(0.98) rotate(180deg); opacity: 1 }
-    75% { transform: translate(12vw, -6vh) scale(1.02) rotate(260deg); opacity: 1 }
-    100% { transform: translate(0, 0) scale(1) rotate(360deg); opacity: 0.9 }
-}
-
-/* Valores por defecto/seguridad para las animaciones aplicadas a los logos en caso de que JS no establezca todas las propiedades */
-.logo-fondo-global {
-    /* si JS no define duration/delay/timing, usamos estos valores seguros */
+    will-change: transform, opacity;
+    
+    /* Valores de seguridad */
     animation-iteration-count: infinite;
     animation-timing-function: linear;
     animation-fill-mode: both;
+}
+
+#logos-fondo-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0; 
+    opacity: 0.05; /* Casi imperceptible */
+    pointer-events: none;
+}
+
+/* --- ANIMACIONES SUAVIZADAS (Menos opacidad en los picos) --- */
+
+/* 1. Diagonal */
+@keyframes diagonal-float {
+    0%   { transform: translate(0, 0) rotate(0deg); }
+    50%  { transform: translate(50vw, 15vh) rotate(180deg); }
+    100% { transform: translate(100vw, 5vh) rotate(360deg); }
+}
+
+/* 2. Parpadeo (Ahora mucho más tenue) */
+@keyframes logo-glow-pulse {
+    0%, 100% { opacity: 0.1; filter: grayscale(100%) brightness(0.4); }
+    50%      { opacity: 0.3; filter: grayscale(80%) brightness(0.8); }
+}
+
+/* 3. Horizontal */
+@keyframes horizontal-float {
+    0%   { transform: translateX(-10vw) translateY(0) rotate(0deg); opacity: 0.1; }
+    50%  { transform: translateX(50vw) translateY(4vh) rotate(180deg); opacity: 0.2; }
+    100% { transform: translateX(110vw) translateY(0) rotate(360deg); opacity: 0.1; }
+}
+
+/* 4. Orbital */
+@keyframes orbit-float {
+    0%   { transform: translate(0, 0) rotate(0deg); opacity: 0.15; }
+    50%  { transform: translate(5vw, -10vh) rotate(180deg); opacity: 0.2; }
+    100% { transform: translate(0, 0) rotate(360deg); opacity: 0.15; }
+}
+
+/* 5. Vertical */
+@keyframes vertical-float {
+    0%   { transform: translateY(-5vh) rotate(0deg); opacity: 0.1; }
+    50%  { transform: translateY(40vh) rotate(180deg); opacity: 0.2; }
+    100% { transform: translateY(-5vh) rotate(360deg); opacity: 0.1; }
+}
+
+/* 6. Zig-zag */
+@keyframes zigzag-float {
+    0%   { transform: translate(0, 0) rotate(0deg); }
+    50%  { transform: translate(15vw, 15vh) rotate(180deg); }
+    100% { transform: translate(-5vw, 30vh) rotate(360deg); }
+}
+
+/* 7. Espiral */
+@keyframes spiral-float {
+    0%   { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 0.1; }
+    50%  { transform: translate(10vw, -10vh) scale(1.1) rotate(180deg); opacity: 0.2; }
+    100% { transform: translate(0, 0) scale(1) rotate(360deg); opacity: 0.1; }
 }
 
 /* ======================================= */

@@ -4,7 +4,7 @@ import Header from './components/Header'
 import AcercaDeMi from './components/AcercaDeMi'
 import Curriculum from './components/Curriculum'
 import Contacto from './components/Contacto'
-import Portafolio from './components/Portafolio'
+import Proyectos from './components/Proyectos.jsx'
 import Educacion from './components/Educacion'
 import Footer from './components/Footer'
 import Modal from './components/Modal'
@@ -37,27 +37,39 @@ export default function App(){
 
   return (
     <>
-      {/* Contenedor para las partículas de fondo */}
+      {/* Fondo y efectos */}
       <div id="particles-js" style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: -2 }}></div>
-      
-      {/* Logos flotantes animados (React) */}
       <FloatingLogos />
-      
-      {/* Contenedor para logos de fondo global (Legacy) */}
       <div id="logos-fondo-global-container" style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1, pointerEvents: 'none' }}></div>
 
       <Header />
 
-      <main>
-        <AcercaDeMi />
-        <Portafolio />
-        <Educacion />
-        <Curriculum />
-        <Contacto />
+      {/* Contenedor principal con IDs para el menú */}
+      <main className="container-main">
+        
+        <section id="about">
+          <AcercaDeMi />
+        </section>
+
+        <section id="projects"> {/* Este ID es el que busca el menú "Proyectos" */}
+          <Proyectos />
+        </section>
+
+        <section id="education">
+          <Educacion />
+        </section>
+
+        <section id="cv">
+          <Curriculum />
+        </section>
+
+        <section id="contact">
+          <Contacto />
+        </section>
+
       </main>
 
       <Footer />
-
       <Modal />
     </>
   )
