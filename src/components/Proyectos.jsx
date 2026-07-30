@@ -24,7 +24,7 @@ export default function Portafolio(){
       liveLink: "https://mundolimpieza526.pythonanywhere.com/" 
     },
     {
-      imgSrc: capStock, // Aquí usamos la nueva imagen
+      imgSrc: capStock, 
       title: "Sistema de Gestión de Stock & Auditoría",
       description: "Sistema productivo para administración de inventarios con panel de control. Incluye lógica de seguridad avanzada y seguimiento de movimientos.",
       technologies: "Python (Flask) · SQLite · Bootstrap · Seguridad: Monitoreo de IP y Logs de Auditoría. Rol: Analista Backend.",
@@ -73,8 +73,44 @@ export default function Portafolio(){
       <div id="particles-js-port-folio"></div>
       <h2>Proyectos </h2>
 
+      {/* TARJETA MANUAL PARA TALENTCIRCLE */}
+      <div className="project-card" style={{ marginBottom: '30px', padding: '20px', borderRadius: '8px' }}>
+        <div className="project-video-container" style={{ width: '100%', maxWidth: '560px', margin: '0 auto 15px auto' }}>
+          <iframe 
+            width="100%" 
+            height="315" 
+            /* IMPORTANTE: Fijate que al final le sumamos '?start=15'. 
+              Cambiá el '15' por la cantidad de segundos que quieras saltearte.
+            */
+            src="https://www.youtube.com/embed/8cBgyq6NUqU?start=15" 
+            title="TalentCircle — Plataforma Integral con IA" 
+            frameBorder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowFullScreen
+            style={{ borderRadius: '6px', display: 'block' }}
+          ></iframe>
+        </div>
+
+        <div className="project-info">
+          <h4>TalentCircle — Plataforma Integral con IA</h4>
+          <p className="project-description">
+            Plataforma web diseñada para automatizar el monitoreo de comunidades tecnológicas, analizar datos de rendimiento semanal de forma centralizada y generar borradores de contenido optimizados mediante la integración de Inteligencia Artificial (Gemini API). Desarrollado bajo metodologías ágiles (Scrum), logrando entregar un MVP completo y listo para producción.
+          </p>
+          <p className="project-tech">
+            <strong>Tecnologías:</strong> Java (Spring Boot) · PostgreSQL · Docker · Gemini API · React · Bootstrap. Rol: Project Manager & Backend Developer.
+          </p>
+          
+          <div className="project-buttons" style={{ marginTop: '15px' }}>
+            <a href="https://github.com/ridermanriquecueto/S04-26-Equipo-22-Web-App-Development" target="_blank" rel="noreferrer" className="btn-repo" style={{ marginRight: '15px', fontWeight: 'bold' }}>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* RENDERIZADO CLÁSICO DE TUS OTROS PROYECTOS */}
       {projects.map((p, i) => (
-        <ProjectCard key={i} imgSrc={p.imgSrc} title={p.title} description={p.description} technologies={p.technologies} repoLink={p.repoLink}liveLink={p.liveLink} />
+        <ProjectCard key={i} imgSrc={p.imgSrc} title={p.title} description={p.description} technologies={p.technologies} repoLink={p.repoLink} liveLink={p.liveLink} />
       ))}
     </section>
   )
