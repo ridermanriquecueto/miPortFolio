@@ -5,7 +5,7 @@ export default function Curriculum() {
     <section id="Curriculum" className="animated-background">
       <div id="particles-js-curriculum"></div>
       <article className="curriculum">
-        <h2>¿Quieres descargar mi currículum? Haz clic abajo</h2>
+        <h2>Descarga mi currículum para conocer en detalle mi experiencia, proyectos y tecnologías.</h2>
         <a
           href="https://drive.google.com/file/d/1MOBdBj3GtJoMSWIydg1MR8X8Z_yyuDJQ/view?usp=drive_link"
           
